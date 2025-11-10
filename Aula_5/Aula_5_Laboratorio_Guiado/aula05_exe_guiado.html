@@ -1,0 +1,136 @@
+<html><head><style>body {
+   color: black;
+}
+</style></head><body><h1 id="-aula-5-demonstra-o-guiada-express-es-no-terminal">✍️ Aula 5: Demonstração Guiada – Expressões no Terminal</h1>
+<h2 id="objetivo">Objetivo</h2>
+<ul>
+<li>Praticar a precedência dos operadores.</li>
+<li>Entender a diferença crucial entre <code>==</code> e <code>===</code>.</li>
+<li>Aplicar operadores lógicos (<code>&amp;&amp;</code> e <code>||</code>).</li>
+</ul>
+<hr>
+<h2 id="parte-1-preced-ncia-e-m-dulo">Parte 1: Precedência e Módulo</h2>
+<p><strong>Setup:</strong> Usar apenas o VSCode e o Terminal (executar com <code>node app.js</code>).</p>
+<p><strong>1. Precedência Matemática:</strong></p>
+<ul>
+<li><p>Mostrar como os parênteses alteram o resultado:</p>
+<pre><code class="lang-javascript">  let result1 = <span class="hljs-number">5</span> + <span class="hljs-number">2</span> * <span class="hljs-number">3</span>; <span class="hljs-comment">// Previsão: 11</span>
+  let result2 = (<span class="hljs-number">5</span> + <span class="hljs-number">2</span>) * <span class="hljs-number">3</span>; <span class="hljs-comment">// Previsão: 21</span>
+
+  console.log(<span class="hljs-string">"Resultado 1:"</span>, result1);
+  console.log(<span class="hljs-string">"Resultado 2:"</span>, result2);
+</code></pre>
+</li>
+</ul>
+<p><strong>2. Operador Módulo (<code>%</code>):</strong></p>
+<ul>
+<li><p>Usado para verificar se um número é par (o resto de $X \div 2$ é $0$).</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">let</span> dezRestoDois = <span class="hljs-number">10</span> % <span class="hljs-number">2</span>; <span class="hljs-comment">// Previsão: 0 (par)</span>
+  <span class="hljs-keyword">let</span> onzeRestoDois = <span class="hljs-number">11</span> % <span class="hljs-number">2</span>; <span class="hljs-comment">// Previsão: 1 (ímpar)</span>
+
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"10 % 2 é:"</span>, dezRestoDois);
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"11 % 2 é:"</span>, onzeRestoDois);
+</code></pre>
+<p><strong>2. Operador incremento (<code>++</code>) e decremento(<code>--</code>):</strong></p>
+</li>
+<li>Copia o código para a consola do browser e observa os resultados
+```javascript
+let numero = 5;</li>
+</ul>
+<p>console.log(&quot;Valor inicial:&quot;, numero);</p>
+<p>// Incremento e decremento simples
+numero++;
+console.log(&quot;Depois de numero++:&quot;, numero);</p>
+<p>numero--;
+console.log(&quot;Depois de numero--:&quot;, numero);</p>
+<p>// Diferença entre pré e pós incremento
+let a = 3;
+let b = ++a; // pré-incremento → incrementa antes de atribuir
+console.log(&quot;Pré-incremento (++a): a =&quot;, a, &quot;b =&quot;, b);</p>
+<p>a = 3;
+b = a++; // pós-incremento → atribui antes de incrementar
+console.log(&quot;Pós-incremento (a++): a =&quot;, a, &quot;b =&quot;, b);</p>
+<p>//Valor inicial: 5
+//Depois de numero++: 6
+//Depois de numero--: 5
+//Pré-incremento (++a): a = 4 b = 4
+//Pós-incremento (a++): a = 4 b = 3</p>
+<pre><code>
+---
+
+## Parte <span class="hljs-number">2</span>: O Perigo da Igualdade
+
+### <span class="hljs-number">1.</span> Concatenação vs. Atribuição Composta:
+* Mostrar a forma simplificada de aumentar um valor:
+    ```javascript
+    <span class="hljs-keyword">let</span> contador = <span class="hljs-number">5</span>;
+    contador += <span class="hljs-number">10</span>; <span class="hljs-comment">// contador = 15</span>
+    console.log(<span class="hljs-string">"Contador após += 10:"</span>, contador);
+
+    <span class="hljs-keyword">let</span> frase = <span class="hljs-string">"Olá"</span>;
+    frase += <span class="hljs-string">" Mundo!"</span>; <span class="hljs-comment">// frase = "Olá Mundo!"</span>
+    console.log(<span class="hljs-string">"Frase concatenada:"</span>, frase);
+</code></pre><h3 id="2-a-regra-do-strict-equality-">2. A Regra do <code>===</code> (Strict Equality):</h3>
+<ul>
+<li><p><strong>Demonstrar o ERRO</strong> de usar <code>==</code> e a segurança do <code>===</code>.</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">const</span> num = <span class="hljs-number">10</span>;
+  <span class="hljs-keyword">const</span> stringNum = <span class="hljs-string">"10"</span>;
+
+  <span class="hljs-comment">// Loose Equality (Igualdade frouxa) - CUIDADO!</span>
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"10 == '10' (Loose):"</span>, num == stringNum); <span class="hljs-comment">// true (Ignora o tipo)</span>
+
+  <span class="hljs-comment">// Strict Equality (Igualdade estrita) - CORRETO!</span>
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"10 === '10' (Strict):"</span>, num === stringNum); <span class="hljs-comment">// false (Compara valor E tipo)</span>
+
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"'false' == false:"</span>, <span class="hljs-string">"false"</span> == <span class="hljs-literal">false</span>); <span class="hljs-comment">// Cuidado: false!</span>
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"'false' === false:"</span>, <span class="hljs-string">"false"</span> === <span class="hljs-literal">false</span>); <span class="hljs-comment">// false</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="3-l-gicos-em-a-o-">3. Lógicos em Ação:</h3>
+<ul>
+<li><p>Simular uma condição de acesso:</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">const</span> usuarioLogado = <span class="hljs-literal">true</span>;
+  <span class="hljs-keyword">const</span> temPermissao = <span class="hljs-literal">false</span>;
+
+  <span class="hljs-comment">// Deve aceder apenas se estiver logado E tiver permissão</span>
+  <span class="hljs-keyword">const</span> podeAceder = usuarioLogado &amp;&amp; temPermissao;
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Pode aceder (Logado E Permissão)?"</span>, podeAceder); <span class="hljs-comment">// false</span>
+
+  <span class="hljs-comment">// Deve ser notificado se logado OU se não tiver permissão</span>
+  <span class="hljs-keyword">const</span> requerAtencao = usuarioLogado || !temPermissao;
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Requer atenção (Logado OU SEM Permissão)?"</span>, requerAtencao); <span class="hljs-comment">// true</span>
+</code></pre>
+<h3 id="mini-desafio-1">Mini desafio 1</h3>
+</li>
+<li>Simular um sistema de login simples
+```javascript
+let nome = &quot;utilizador&quot;;
+let senhaCorreta = &quot;1234&quot;;
+let senhaInserida = &quot;1234&quot;;</li>
+</ul>
+<p>let loginValido = (nome === &quot;utilizador&quot;) &amp;&amp; (senhaInserida === senhaCorreta);
+console.log(&quot;Login válido?&quot;, loginValido);</p>
+<pre><code>
+### Mini desafio <span class="hljs-number">2</span>
+* Concatenação de Strings
+```javascript
+<span class="hljs-keyword">let</span> nome = <span class="hljs-string">"Rita"</span>;
+<span class="hljs-keyword">let</span> idade = <span class="hljs-number">22</span>;
+
+<span class="hljs-comment">// Concatenação tradicional</span>
+<span class="hljs-keyword">let</span> mensagem1 = <span class="hljs-string">"A "</span> + nome + <span class="hljs-string">" tem "</span> + idade + <span class="hljs-string">" anos."</span>;
+console.log(mensagem1);
+
+<span class="hljs-comment">// Concatenação com template literal</span>
+<span class="hljs-keyword">let</span> mensagem2 = `A ${nome} tem ${idade} anos.`;
+console.log(mensagem2);
+</code></pre><ul>
+<li><p>Muda o nome e a idade e observa o resultado.</p>
+</li>
+<li><p>Cria uma nova variável cidade e adiciona essa informação às duas mensagens.</p>
+</li>
+<li><p>Exemplo esperado: &quot;A Rita tem 22 anos e vive em Lisboa.&quot;</p>
+</li>
+</ul>
+</body></html>

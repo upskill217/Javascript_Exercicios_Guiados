@@ -1,0 +1,62 @@
+<html><head><style>body {
+   color: black;
+}
+</style></head><body><h1 id="-aula-5-laborat-rio-mini-calculadora-b-sica">🎯 Aula 5: Laboratório – Mini-Calculadora Básica</h1>
+<h2 id="i-pr-tica-livre-no-vscode-playcode-io">I. Prática Livre no VSCode / playcode.io</h2>
+<p><strong>Objetivo:</strong> Combinar variáveis (<code>let</code>/<code>const</code>) e operadores aritméticos (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>) para simular uma calculadora.</p>
+<h3 id="desafio-1-a-calculadora-de-pre-os">Desafio 1: A Calculadora de Preços</h3>
+<p>Crie um novo ficheiro <code>calculadora.js</code>.</p>
+<ol>
+<li><strong>Constantes:</strong> Defina os valores de entrada (não mudam):<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> precoUnitario = <span class="hljs-number">45.99</span>;
+<span class="hljs-keyword">const</span> quantidade = <span class="hljs-number">3</span>; 
+<span class="hljs-keyword">const</span> taxaIVA = <span class="hljs-number">0.23</span>; <span class="hljs-comment">// 23%</span>
+</code></pre>
+</li>
+<li><strong>Processamento (Passo 1):</strong> Calcule o preço total <strong>sem IVA</strong>. Use <code>let</code>.<pre><code class="lang-javascript"><span class="hljs-attribute">let precoSemIVA</span> = precoUnitario * quantidade;
+</code></pre>
+</li>
+<li><strong>Processamento (Passo 2):</strong> Calcule o valor do IVA.<pre><code class="lang-javascript"><span class="hljs-attribute">let valorIVA</span> = precoSemIVA * taxaIVA;
+</code></pre>
+</li>
+<li><strong>Processamento (Passo 3):</strong> Calcule o preço total <strong>com IVA</strong>. Use atribuição composta (<code>+=</code>).<pre><code class="lang-javascript">let precoTotal = precoSemIVA<span class="hljs-comment">;</span>
+precoTotal += valorIVA<span class="hljs-comment">;</span>
+</code></pre>
+</li>
+<li><strong>Output:</strong> Use <code>console.log()</code> para mostrar os três resultados (Sem IVA, Valor IVA, Total com IVA).</li>
+</ol>
+<hr>
+<h3 id="desafio-2-l-gica-de-login">Desafio 2: Lógica de Login</h3>
+<ul>
+<li>Crie um novo ficheiro <code>login.js</code>.  Substitui os espaços pelas expressões lógicas certas (&amp;&amp;, ||, !)</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> userAtivo = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">const</span> senhaCorreta = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">const</span> assinaturaPaga = <span class="hljs-literal">false</span>;
+
+<span class="hljs-comment">// 1. Acesso Simples: deve ser ativo E ter senha correta</span>
+<span class="hljs-keyword">const</span> acessoSimples = _______________;
+console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Acesso Simples:"</span>, acessoSimples);
+
+<span class="hljs-comment">// 2. Acesso Premium: precisa de acesso simples E assinatura paga</span>
+<span class="hljs-keyword">const</span> acessoPremium = _______________;
+console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Acesso Premium:"</span>, acessoPremium);
+
+<span class="hljs-comment">// 3. Requer Atualização: ativo E assinatura NÃO paga</span>
+<span class="hljs-keyword">const</span> requerAtualizacao = _______________;
+console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Requer Atualização:"</span>, requerAtualizacao);
+</code></pre>
+<h3 id="desafio-3-m-dia-de-notas">Desafio 3: Média de Notas</h3>
+<ul>
+<li>Calcula a média de 3 ou mais notas e diz se o aluno foi aprovado (média ≥ 9.5). </li>
+</ul>
+<h3 id="desafio-4-concatena-o-e-literais">Desafio 4: Concatenação e Literais</h3>
+<ul>
+<li>Dado um nome, idade e cidade guarde numa variável a concatenação numa frase da junção destas 3 variáveis. Use a concatenação tradicional (+) e a template literal (<code>$(variavel)</code>)</li>
+</ul>
+<h3 id="desafio-5-conversor-de-moeda">Desafio 5: Conversor de Moeda</h3>
+<ul>
+<li>Dado uma taxa de câmbio fixa e um valor a converter calcule o valor convertido e mostre na consola</li>
+</ul>
+<h3 id="desafio-6-incremento-e-decremento">Desafio 6: Incremento e Decremento</h3>
+<h2 id="-dado-uum-valor-inicial-do-contador-mostre-na-consola-o-valor-inicial-o-valor-p-s-incremento-e-o-valor-pr-incremento-use-os-operadores-para-incremento-">* Dado uum valor inicial do contador mostre na consola o valor inicial,  o valor pós incremento e o valor pré incremento. Use os operadores para incremento (++)</h2>
+</body></html>
