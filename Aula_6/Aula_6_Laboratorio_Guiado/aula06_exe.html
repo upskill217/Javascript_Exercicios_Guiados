@@ -1,0 +1,87 @@
+<html><head><style>body {
+   color: black;
+}
+</style></head><body><h1 id="-aula-6-laborat-rio-sistema-de-classifica-o-de-notas">🎯 Aula 6: Laboratório – Sistema de Classificação de Notas</h1>
+<h2 id="i-pr-tica-livre-no-vscode">I. Prática Livre no VSCode</h2>
+<p><strong>Objetivo:</strong> Usar <code>if / else if / else</code> para criar um sistema de classificação robusto e <code>switch</code> para gerir um menu simples.</p>
+<h3 id="desafio-1-classifica-o-de-desempenho-if-else-if-">Desafio 1: Classificação de Desempenho (if/else if)</h3>
+<p>Crie um ficheiro <code>classificador.js</code>.</p>
+<ol>
+<li>Defina uma variável <strong><code>let notaFinal = 15.5;</code></strong></li>
+<li>Implemente o seguinte sistema de classificação usando a estrutura <code>if/else if/else</code>:<ul>
+<li>Se <code>notaFinal &gt; 17</code>: &quot;Nível 1: Excelente&quot;</li>
+<li>Se <code>notaFinal &gt; 14</code>: &quot;Nível 2: Bom&quot;</li>
+<li>Se <code>notaFinal &gt;= 9.5</code>: &quot;Nível 3: Suficiente&quot;</li>
+<li>Se <code>notaFinal &lt; 9.5</code>: &quot;Nível 4: Reprovado&quot;</li>
+</ul>
+</li>
+<li>Execute na consola e <strong>teste com diferentes valores</strong> (20, 16, 10, 5) para garantir que todos os caminhos são testados.</li>
+</ol>
+<h3 id="desafio-2-despacho-de-encomendas-switch-">Desafio 2: Despacho de Encomendas (switch)</h3>
+<p>Crie um ficheiro <code>encomendas.js</code>.</p>
+<ol>
+<li>Defina uma constante <strong><code>const codigoEstado = &quot;PT&quot;;</code></strong></li>
+<li>Implemente uma estrutura <strong><code>switch</code></strong> para dar uma mensagem de despacho com base no código:<ul>
+<li><strong>Case &quot;PT&quot;:</strong> &quot;Despacho Nacional. Entrega 1 dia.&quot;</li>
+<li><strong>Case &quot;ES&quot;:</strong> &quot;Despacho Ibérico. Entrega 2 dias.&quot;</li>
+<li><strong>Case &quot;FR&quot;:</strong> &quot;Despacho Europeu. Entrega 3-5 dias.&quot;</li>
+<li><strong>Default:</strong> &quot;Código de destino inválido.&quot;</li>
+</ul>
+</li>
+<li>Certifique-se de usar a palavra-chave <strong><code>break</code></strong> em cada <code>case</code>.</li>
+</ol>
+<hr>
+<h3 id="desafio-3-verifica-o-de-acesso-a-evento-if-else-">Desafio 3: Verificação de Acesso a Evento (if/else)</h3>
+<p>Crie um ficheiro <code>acessos.js</code>.</p>
+<ol>
+<li>Crie a variável para guardar a idade</li>
+<li>Determine o acesso:<ol>
+<li>idade &gt;= 18 → &quot;Acesso permitido&quot;</li>
+<li>idade &gt;= 16 &amp;&amp; idade &lt; 18 → &quot;Acesso com acompanhante&quot;  </li>
+<li>idade &lt; 16 → &quot;Acesso proibido&quot;</li>
+</ol>
+</li>
+<li>Teste com idades 15, 16 e 18.</li>
+</ol>
+<hr>
+<h3 id="desafio-4-menu-de-restaurante-switch-">Desafio 4: Menu de Restaurante (switch)</h3>
+<p>Crie um ficheiro <code>restaurante.js</code>.</p>
+<ol>
+<li>Crie a variável para guardar o prato escolhido</li>
+<li>Considere esta opções (ou adapte a seu gosto):<ol>
+<li>Pizza&quot; → &quot;Pizza de quatro queijos&quot;</li>
+<li>&quot;Hamburguer&quot; → &quot;Hamburguer com batatas&quot;</li>
+<li>&quot;Salada&quot; → &quot;Salada de vegetais frescos&quot;</li>
+<li>default → &quot;Prato indisponível&quot;</li>
+</ol>
+</li>
+<li>Teste todos os valores e observe o default.</li>
+</ol>
+<hr>
+<h3 id="desafio-5-avalia-o-de-consumo-de-combust-vel-if-else-if-">Desafio 5: Avaliação de Consumo de Combustível (if/else if)</h3>
+<p>Crie um ficheiro <code>consumo.js</code>.</p>
+<ol>
+<li>Crie a variável para guardar o consumo</li>
+<li>Considere esta opções (ou adapte a seu gosto):<ol>
+<li>&lt; 5 → &quot;Muito eficiente&quot;</li>
+<li><blockquote>
+<p>= 5 &amp;&amp; &lt;= 8 → &quot;Eficiente&quot;</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>8 &amp;&amp; &lt;= 12 → &quot;Médio&quot;</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>12 → &quot;Elevado&quot;</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>Teste com valores 4, 6, 10 e 13.</li>
+</ol>
+<hr>
+<ul>
+<li>💡 Extra: Tente usar ternário para casos simples de if/else e compare a legibilidade do código.</li>
+</ul>
+</body></html>

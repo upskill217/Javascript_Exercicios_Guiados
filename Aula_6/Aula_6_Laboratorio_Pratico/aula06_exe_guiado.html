@@ -1,0 +1,95 @@
+<html><head><style>body {
+   color: black;
+}
+</style></head><body><h1 id="-aula-6-demonstra-o-guiada-decis-es-no-c-digo">✍️ Aula 6: Demonstração Guiada – Decisões no Código</h1>
+<h2 id="objetivo">Objetivo</h2>
+<ul>
+<li>Implementar a estrutura <code>if/else</code> básica.</li>
+<li>Construir um sistema de classificação de notas usando <code>else if</code>.</li>
+<li>Utilizar o <code>switch</code> para escolher opções.</li>
+</ul>
+<hr>
+<h2 id="parte-1-if-else-e-l-gica-composta">Parte 1: <code>if/else</code> e Lógica Composta</h2>
+<p><strong>Setup:</strong> Usar o VSCode / playcode.io.</p>
+<h3 id="1-condi-o-simples">1. Condição Simples</h3>
+<ul>
+<li><p>Verificar se a idade permite acesso:</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">const</span> idadeMinima = <span class="hljs-number">16</span>;
+  <span class="hljs-keyword">let</span> idadeUsuario = <span class="hljs-number">15</span>;
+
+  <span class="hljs-keyword">if</span> (idadeUsuario &gt;= idadeMinima) {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Acesso concedido: É maior que a idade mínima."</span>);
+  } <span class="hljs-keyword">else</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Acesso negado: Idade insuficiente."</span>);
+  }
+</code></pre>
+</li>
+</ul>
+<h3 id="2-condi-o-l-gica-composta-">2. Condição Lógica Composta (<code>&amp;&amp;</code>)</h3>
+<ul>
+<li><p>Usar o operador lógico AND para testar dois critérios:</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">const</span> temBilhete = <span class="hljs-literal">true</span>;
+  <span class="hljs-keyword">const</span> horaCerta = <span class="hljs-literal">false</span>;
+
+  <span class="hljs-comment">// Acesso permitido se TIVER bilhete E for a HORA CERTA</span>
+  <span class="hljs-keyword">if</span> (temBilhete &amp;&amp; horaCerta) {
+      console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Entrada autorizada."</span>);
+  } <span class="hljs-keyword">else</span> {
+      console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Entrada pendente. Verifique o bilhete ou a hora."</span>);
+  }
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="parte-2-if-else-if-e-switch-">Parte 2: <code>if/else if</code> e <code>switch</code></h2>
+<h3 id="1-sistema-de-classifica-o-de-notas">1. Sistema de Classificação de Notas</h3>
+<ul>
+<li><p>Demonstrar o uso e a <strong>importância da ordem</strong> das condições:</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">let</span> notaExame = <span class="hljs-number">16</span>;
+
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"A sua nota é:"</span>, notaExame);
+
+  <span class="hljs-keyword">if</span> (notaExame &gt; <span class="hljs-number">17</span>) {
+      console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Classificação: Distinção."</span>);
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (notaExame &gt; <span class="hljs-number">13</span>) {
+      console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Classificação: Bom."</span>); <span class="hljs-comment">// Esta linha é executada</span>
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (notaExame &gt;= <span class="hljs-number">9.5</span>) {
+      console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Classificação: Suficiente."</span>);
+  } <span class="hljs-keyword">else</span> {
+      console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Classificação: Reprovado."</span>);
+  }
+</code></pre>
+<p>  <em>Mudar a nota para 8 e depois para 19 para demonstrar todos os caminhos.</em></p>
+</li>
+</ul>
+<h3 id="2-escolha-com-switch-">2. Escolha com <code>switch</code></h3>
+<ul>
+<li><p>Simular a escolha de um menu de opções:</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">const</span> opcao = <span class="hljs-string">"Ver Saldo"</span>;
+
+  <span class="hljs-keyword">switch</span> (opcao) {
+      <span class="hljs-keyword">case</span> <span class="hljs-string">"Levantar"</span>:
+          console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"A processar levantamento..."</span>);
+          <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">"Ver Saldo"</span>:
+          console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"O seu saldo é de 500 EUR."</span>);
+          <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">"Transferir"</span>:
+          console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Aceder menu de transferência."</span>);
+          <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">default</span>:
+          console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Opção inválida."</span>);
+  }
+</code></pre>
+</li>
+</ul>
+<h3 id="3-condi-es-combinadas-com-tern-rio">3. Condições combinadas com ternário</h3>
+<ul>
+<li><p>Introduzir ternário como atalho rápido para if/else simples:</p>
+<pre><code class="lang-javascript">  <span class="hljs-built_in">let</span> idade = <span class="hljs-number">20</span>;
+  <span class="hljs-built_in">let</span> <span class="hljs-built_in">status</span> = (idade &gt;= <span class="hljs-number">18</span>) ? <span class="hljs-string">"Adulto"</span> : <span class="hljs-string">"Menor"</span>;
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Status:"</span>, <span class="hljs-built_in">status</span>);
+</code></pre>
+</li>
+</ul>
+</body></html>
