@@ -1,0 +1,83 @@
+<html><head><style>body {
+   color: black;
+}
+</style></head><body><h1 id="-aula-7-demonstra-o-guiada-o-poder-da-repeti-o">✍️ Aula 7: Demonstração Guiada – O Poder da Repetição</h1>
+<h2 id="objetivo">Objetivo</h2>
+<ul>
+<li>Implementar a sintaxe correta do ciclo <code>for</code> (inicialização, condição, incremento).</li>
+<li>Construir um somatório usando um acumulador.</li>
+<li>Aplicar lógica de filtragem (<code>if</code>) dentro do <code>for</code>.</li>
+</ul>
+<hr>
+<h2 id="parte-1-sintaxe-b-sica-do-for-">Parte 1: Sintaxe Básica do <code>for</code></h2>
+<p><strong>Setup:</strong> Usar VSCode / playcode.io.</p>
+<h3 id="1-ciclo-simples">1. Ciclo Simples</h3>
+<ul>
+<li>Demonstrar cada componente do <code>for</code> (i=0, i&lt;5, i++):<pre><code class="lang-javascript">  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"--- Contagem Simples ---"</span>);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) {
+      <span class="hljs-comment">// i vai de 0, 1, 2, 3, 4</span>
+      console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Iteração número:"</span>, i); 
+  }
+</code></pre>
+</li>
+</ul>
+<h3 id="2-ciclo-regressivo">2. Ciclo Regressivo</h3>
+<ul>
+<li>Mostrar como inverter o fluxo usando decremento e a condição oposta:<pre><code class="lang-javascript">  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"\n--- Contagem Regressiva ---"</span>);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">5</span>; j &gt;= <span class="hljs-number">1</span>; j--) { <span class="hljs-comment">// j-- é o mesmo que j = j - 1</span>
+      console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Lançamento em:"</span>, j); 
+  }
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"FOGO!"</span>);
+</code></pre>
+</li>
+</ul>
+<h3 id="3-ciclo-com-incremento-diferente">3. Ciclo com Incremento Diferente</h3>
+<ul>
+<li>Usar o operador de atribuição composta (<code>+=</code>) para alterar o passo:<pre><code class="lang-javascript">  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"\n--- Contar de 3 em 3 ---"</span>);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> k = <span class="hljs-number">0</span>; k &lt;= <span class="hljs-number">15</span>; k += <span class="hljs-number">3</span>) {
+      console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Valor:"</span>, k); 
+  }
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="parte-2-somat-rios-e-filtragem">Parte 2: Somatórios e Filtragem</h2>
+<h3 id="1-construir-um-somat-rio-acumulador-">1. Construir um Somatório (Acumulador)</h3>
+<ul>
+<li><p>Demonstrar a necessidade de declarar a variável acumuladora <strong>fora</strong> do ciclo:</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">let</span> totalCusto = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">const</span> numItens = <span class="hljs-number">4</span>;
+  <span class="hljs-keyword">const</span> custoItem = <span class="hljs-number">15</span>; 
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; numItens; i++) {
+      totalCusto += custoItem; <span class="hljs-comment">// totalCusto = totalCusto + 15</span>
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Item <span class="hljs-subst">${i + <span class="hljs-number">1</span>}</span> adicionado. Total provisório: <span class="hljs-subst">${totalCusto}</span>`</span>);
+  }
+
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"\nCusto Final:"</span>, totalCusto);
+</code></pre>
+</li>
+</ul>
+<h3 id="2-filtrar-mpares">2. Filtrar Ímpares</h3>
+<ul>
+<li>Usar o operador Módulo (<code>%</code>) e o <code>if</code> para filtrar números:
+  ```javascript
+  console.log(&quot;\n--- Números Ímpares de 1 a 10 ---&quot;);
+  for (let x = 1; x &lt;= 10; x++) {<pre><code>  <span class="hljs-keyword">if</span> (x % <span class="hljs-number">2</span> !== <span class="hljs-number">0</span>) { <span class="hljs-comment">// Se o resto da divisão por 2 NÃO for zero (é ímpar)</span>
+      console.<span class="hljs-built_in">log</span>(x);
+  }
+</code></pre>  }</li>
+</ul>
+<h3 id="3-somat-rio-condicionado">3. Somatório condicionado</h3>
+<ul>
+<li>Combinar acumulador e filtragem ao mesmo tempo, para somar apenas os números pares de 1 a 10:<pre><code class="lang-javascript">  <span class="hljs-keyword">let</span> somaPares = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span>; i++) {
+  <span class="hljs-keyword">if</span> (i % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>) {
+      somaPares += i;
+  }
+}
+console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Soma dos pares de 1 a 10:"</span>, somaPares);
+</code></pre>
+</li>
+</ul>
+</body></html>
