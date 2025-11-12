@@ -55,5 +55,5 @@ console.log("\nDesafio 5: Contagem Regressiva com Condicional");
 //Tarefa: Contar de 10 a 1 e imprimir uma mensagem especial para números múltiplos de 3.
 console.log("--- Contagem regressiva para múltiplos de 3 entre (10-1)---");
 for (let m = 10; m >= 1; m -= 3) {
-  console.log(`${m}`);
+  console.log(`m: ${m}`);
 }
