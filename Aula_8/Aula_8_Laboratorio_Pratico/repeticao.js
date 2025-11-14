@@ -47,10 +47,10 @@ for (let i = 1; i <= 5; i++) {
 /* Desafio 5: Padrão de Estrelas (Visualização de Aninhamento) */
 console.log("\nDesafio 5: Padrão de Estrelas (Visualização de Aninhamento)");
 
-for (let i = 1; i <= 4; i++) {
+for (let i = 1; i <= 5; i++) {
   let linha = "";
   for (let j = 1; j <= i; j++) {
     linha += "*";
   }
-  console.log(`${linha}`)
+  console.log(`${linha}`);
 }
