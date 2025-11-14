@@ -1,0 +1,86 @@
+<html><head><style>body {
+   color: black;
+}
+</style></head><body><h1 id="-aula-8-demonstra-o-guiada-while-e-aninhamento">✍️ Aula 8: Demonstração Guiada – <code>while</code> e Aninhamento</h1>
+<h2 id="objetivo">Objetivo</h2>
+<ul>
+<li>Implementar o ciclo <code>while</code> de forma segura (evitando loops infinitos).</li>
+<li>Construir um programa de login simples com <code>while</code>.</li>
+<li>Demonstrar o fluxo de execução de ciclos aninhados.</li>
+</ul>
+<hr>
+<h2 id="parte-1-o-ciclo-while-">Parte 1: O Ciclo <code>while</code></h2>
+<p><strong>Setup:</strong> Usar VSCode / playcode.io .</p>
+<h3 id="1-while-b-sico">1. <code>while</code> Básico</h3>
+<ul>
+<li>Demonstrar a sintaxe correta e o risco do loop infinito (pode ser demonstrado brevemente comentando o incremento):<pre><code class="lang-javascript">  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"--- Exemplo while ---"</span>);
+  <span class="hljs-keyword">let</span> cont = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">while</span> (cont &lt; <span class="hljs-number">4</span>) {
+      console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Contagem:"</span>, cont);
+      cont++; <span class="hljs-comment">// Ponto crucial: garantir que a condição muda</span>
+  }
+</code></pre>
+</li>
+</ul>
+<h3 id="2-simula-o-de-login-condicional">2. Simulação de Login Condicional</h3>
+<ul>
+<li><p>Usar uma condição booleana para controlar o loop:</p>
+<pre><code class="lang-javascript">  <span class="hljs-keyword">let</span> senhaCorreta = <span class="hljs-string">"1234"</span>;
+  <span class="hljs-keyword">let</span> tentativa = <span class="hljs-string">""</span>;
+  <span class="hljs-keyword">let</span> tentativasRestantes = <span class="hljs-number">3</span>;
+
+  <span class="hljs-comment">// Simulação: se a tentativa for vazia, continua a correr</span>
+  <span class="hljs-keyword">while</span> (tentativa !== senhaCorreta &amp;&amp; tentativasRestantes &gt; <span class="hljs-number">0</span>) {
+      <span class="hljs-comment">// Na vida real, usaria um input aqui. Aqui, simulamos:</span>
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Tentativa <span class="hljs-subst">${<span class="hljs-number">4</span> - tentativasRestantes}</span> de 3...`</span>);
+
+      <span class="hljs-keyword">if</span> (tentativasRestantes === <span class="hljs-number">1</span>) {
+          tentativa = senhaCorreta; <span class="hljs-comment">// Simula a última tentativa certa</span>
+      }
+
+      tentativasRestantes--;
+  }
+
+  <span class="hljs-keyword">if</span> (tentativa === senhaCorreta) {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Login OK!"</span>);
+  } <span class="hljs-keyword">else</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Conta Bloqueada."</span>);
+  }
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="parte-2-ciclos-aninhados-e-controlo">Parte 2: Ciclos Aninhados e Controlo</h2>
+<h3 id="1-demonstra-o-do-fluxo-aninhado">1. Demonstração do Fluxo Aninhado</h3>
+<ul>
+<li>Mostrar como o ciclo interno corre completamente para cada passo do externo:<pre><code class="lang-javascript">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"\n--- Ciclos Aninhados ---"</span>);
+  <span class="hljs-comment">// Tabuadas de 1 e 2</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">2</span>; i++) { <span class="hljs-comment">// Ciclo Externo (Tabuada)</span>
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`\n** Tabuada do <span class="hljs-subst">${i}</span> **`</span>);
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">5</span>; j++) { <span class="hljs-comment">// Ciclo Interno (Multiplicador)</span>
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${i}</span> x <span class="hljs-subst">${j}</span> = <span class="hljs-subst">${i * j}</span>`</span>);
+      }
+  }
+</code></pre>
+</li>
+</ul>
+<h3 id="2-uso-de-break-e-continue-">2. Uso de <code>break</code> e <code>continue</code></h3>
+<ul>
+<li><p>Mostrar a diferença entre as duas palavras-chave:</p>
+<pre><code class="lang-javascript">  console.log(<span class="hljs-string">"\n--- Controlo (break/continue) ---"</span>);
+  <span class="hljs-keyword">for</span> (let <span class="hljs-built_in">num</span> = <span class="hljs-number">1</span>; <span class="hljs-built_in">num</span> &lt;= <span class="hljs-number">10</span>; <span class="hljs-built_in">num</span>++) {
+      <span class="hljs-keyword">if</span> (<span class="hljs-built_in">num</span> % <span class="hljs-number">2</span> !== <span class="hljs-number">0</span>) {
+          <span class="hljs-keyword">continue</span>; <span class="hljs-comment">// Se ímpar, salta esta iteração e vai para a próxima</span>
+      }
+
+      <span class="hljs-keyword">if</span> (<span class="hljs-built_in">num</span> &gt; <span class="hljs-number">6</span>) {
+          <span class="hljs-keyword">break</span>; <span class="hljs-comment">// Se o número for maior que 6, para TUDO.</span>
+      }
+
+      console.log(<span class="hljs-string">"Número Par Processado:"</span>, <span class="hljs-built_in">num</span>); 
+  }
+  <span class="hljs-comment">// Output esperado: 2, 4, 6</span>
+</code></pre>
+</li>
+</ul>
+</body></html>
