@@ -10,6 +10,7 @@ function verificarParOuImpar(n) {
     console.log(`O numero ${n} é ímpar.`);
   }
 }
+
 //testar função
 verificarParOuImpar(2);
 verificarParOuImpar(35);
@@ -18,13 +19,14 @@ verificarParOuImpar(20);
 
 /* Exercício 2 — Cálculo do IMC */
 console.log("\nExercício 2 — Cálculo do IMC ");
-//Crie uma função calcularIMC(peso, altura) que devolva o IMC usando:
 
+//Crie uma função calcularIMC(peso, altura) que devolva o IMC usando:
 function calcularIMC(peso, altura) {
   // IMC = peso / (altura * altura)
   IMC = peso / (altura * altura);
   console.log(`O IMC de ${peso} kg e ${altura} m é ${IMC}`)
 }
+
 //testar função calcular IMC
 calcularIMC(65, 1.70);
 calcularIMC(120, 1.82);
