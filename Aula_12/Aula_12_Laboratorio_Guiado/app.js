@@ -89,14 +89,19 @@ function criarPessoa(nome, idade) {
   return {
     nome: nome,
     idade: idade,
-    falar() {},
+    falar() {
+      console.log(`A pessoa com nome ${this.nome}, falou: Olá!`);
+    },
   };
 }
 //testar
 const maria = criarPessoa("Maria", 24);
-const joao = criarPessoa("João", 44);
 mostrarInfo(maria);
+maria.falar();
+
+const joao = criarPessoa("João", 44);
 mostrarInfo(joao);
+joao.falar();
 
 /* Exercício 9 — Banco Simples com Depósito e Levantamento */
 console.log("\nExercício 9 — Banco Simples com Depósito e Levantamento");
@@ -134,5 +139,95 @@ operacaoSegura(contaBancaria, -100, contaBancaria.depositar);
 //ver saldo
 contaBancaria.mostarSaldo();
 
+/* Exercício 10 — Comparador de Objetos (Callback) */
+console.log("\nExercício 10 — Comparador de Objetos (Callback)");
+//Crie uma função compararObjetos(obj1, obj2, callback)
+//que recebe dois objetos e executa um callback que decide qual dos dois “ganha”.
+function compararObjetos(obj1, obj2, callback) {
+  return callback(obj1, obj2);
+}
 
+function maiorIdade(p1, p2) {
+  // Dica: usar operador condicional ( ? : )
+  return p1.idade > p2.idade ? p1 : p2;
+}
 
+function maiorSalario(p1, p2) {
+  // Dica: usar operador condicional ( ? : )
+  return p1.salario > p2.salario ? p1 : p2;
+}
+
+function maiorPontuacao(p1, p2) {
+  // Dica: usar operador condicional ( ? : )
+  return p1.pontuacao > p2.pontuacao ? p1 : p2;
+}
+
+//objetos pessoas com nome e idade
+const pessoa1 = { nome: "João", idade: 30 };
+const pessoa2 = { nome: "Maria", idade: 25 };
+//teste comparar pessoa com maior idade
+let pessoaMaiorDeIdade = compararObjetos(pessoa1, pessoa2, maiorIdade);
+console.log(`A pessoa com maior idade é ${pessoaMaiorDeIdade.nome}.`);
+
+//objetos funcionarios com nome e salario
+const funcionario1 = { nome: "Miguel", salario: 5000 };
+const funcionario2 = { nome: "Daniela", salario: 6500 };
+//teste comparar funcionario com maior salario
+let funcionarioMaiorSalario = compararObjetos(funcionario1, funcionario2, maiorSalario);
+console.log(`O funcionario com maior salario é ${funcionarioMaiorSalario.nome}.`);
+
+//objetos jogadores com nome e pontuação
+const jogador1 = { nome: "Danilson", pontuacao: 1000 };
+const jogador2 = { nome: "Daniel", pontuacao: 6500 };
+//teste comparar jogador com maior pontuaçao
+let jogadorMaiorPontuacao = compararObjetos(jogador1, jogador2, maiorPontuacao);
+console.log(`O jogador com maior pontuacao é ${jogadorMaiorPontuacao.nome}.`);
+
+/* Exercício 11 — Simulação de Votação com Ciclo */
+console.log("\nExercício 11 — Simulação de Votação com Ciclo");
+//Crie um objeto votacao com:
+//candidato1 → votos (inicia em 0)
+//candidato2 → votos (inicia em 0)
+//Funções necessárias:
+//votar(candidato) → adiciona 1 voto ao candidato escolhido
+//mostrarResultado() → mostra qual candidato venceu ou se houve empate
+//iniciarVotacao(totalVotos) → usa um ciclo for para simular votos aleatórios
+const votacao = {
+  candidato1: 0,
+  candidato2: 0,
+  votar(candidato) {
+    if (candidato === "candidato1") {
+      this.candidato1 += 1;
+    } else if (candidato === "candidato2") {
+      this.candidato2 += 1;
+    }
+  },
+  mostrarResultado() {
+    if (this.candidato1 > this.candidato2) {
+      console.log(`O candidato 1 venceu com ${this.candidato1} votos.`);
+    } else if (this.candidato2 > this.candidato1) {
+      console.log(`O candidato 2 venceu com ${this.candidato2} votos.`);
+    } else {
+      console.log("Houve empate entre os dois candidatos.");
+    }
+  },
+  iniciarVotacao(totalVotos) {
+    for (let i = 0; i < totalVotos; i++) {
+      if (Math.random() < 0.5) {
+        votacao.votar("candidato1");
+      } else {
+        votacao.votar("candidato2");
+      }
+    }
+  },
+};
+
+//Simular 20 votos
+console.log("\nSimular 20 votos");
+votacao.iniciarVotacao(20);
+votacao.mostrarResultado();
+
+//Simular 50 votos
+console.log("\nSimular 50 votos");
+votacao.iniciarVotacao(50);
+votacao.mostrarResultado();
