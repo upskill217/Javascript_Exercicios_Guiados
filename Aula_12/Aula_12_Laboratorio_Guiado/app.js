@@ -198,7 +198,7 @@ const votacao = {
   votar(candidato) {
     if (candidato === "candidato1") {
       this.candidato1 += 1;
-    } else if (candidato === "candidato2") {
+    } else {
       this.candidato2 += 1;
     }
   },
