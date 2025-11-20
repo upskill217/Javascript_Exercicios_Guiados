@@ -1,0 +1,146 @@
+<html>
+<head>
+<style>
+body { color: black; font-family: Arial; line-height: 1.6; }
+h1 { color: #006600; }
+hr { margin: 20px 0; }
+pre { background-color: #f0f0f0; padding: 10px; }
+b { background-color: #f0f0f0; padding: 2px 4px; }
+</style>
+</head>
+
+<body>
+
+<h1>💡 Exercícios Guiados — Objetos em JavaScript</h1>
+
+<h2>Objetivo</h2>
+<ul>
+<li>Compreender como criar e usar objetos.</li>
+<li>Trabalhar com propriedades, métodos e funções que recebem objetos.</li>
+<li>Usar funções de callback e ciclos com objetos.</li>
+</ul>
+<hr>
+
+<h2>📝 Exercício 1 — Criar Objeto Simples</h2>
+<p>Crie um objeto <b>pessoa</b> com nome e idade. Mostre no console: "Nome: X, Idade: Y".</p>
+
+<h2>📝 Exercício 2 — Função que Recebe Objeto</h2>
+<p>Crie uma função <b>mostrarInfo(pessoa)</b> que recebe um objeto e exibe seus dados formatados.</p>
+
+<h2>📝 Exercício 3 — Adicionar Método a Objeto</h2>
+<p>Crie um objeto <b>carro</b> com marca, modelo e um método <b>descrever()</b> que mostra:  
+"Carro: marca modelo".</p>
+
+<h2>📝 Exercício 4 — Atualizar Propriedade com Função</h2>
+<p>Crie uma função <b>fazerAniversario(pessoa)</b> que aumenta a idade em 1.</p>
+
+<h2>📝 Exercício 5 — Criar Objeto com Método de Cálculo</h2>
+<p>Crie um objeto <b>retangulo</b> com largura, altura e um método <b>area()</b> que calcula largura × altura.</p>
+
+<h2>📝 Exercício 6 — Função com Callback e Objeto</h2>
+<p>Crie uma função <b>processar(obj, callback)</b> que aplica uma operação sobre o objeto.</p>
+
+<h2>📝 Exercício 7 — Objetos com Função Interna</h2>
+<p>Crie um objeto <b>aluno</b> com notas e um método <b>calcularMedia()</b> que devolve a média das 3 notas.</p>
+
+<h2>📝 Exercício 8 — Funções que Criam Objetos (Factory)</h2>
+<p>Crie uma função <b>criarPessoa(nome, idade)</b> que retorna um objeto pessoa com método <b>falar()</b>.</p>
+
+<h2>📝 Exercício 9 — Banco Simples com Depósito e Levantamento</h2>
+<p>Crie um objeto contaBancaria com:</p>
+<ul>
+  <li><b>titular</b></li>
+  <li><b>saldo</b></li>
+</ul>
+<p>Métodos:</p>
+<ul>
+  <li>depositar(valor)</li>
+  <li>levantar(valor)</li>
+  <li>mostrarSaldo()</li>
+</ul>
+
+<p><b>DESAFIO EXTRA:</b> Crie uma função externa <b>operacaoSegura(conta, valor, funcao)</b> que executa a função apenas se o valor for positivo.</p>
+
+<h2>⚖️ Exercício 10 — Comparador de Objetos (Callback)</h2>
+<p>
+Crie uma função <b>compararObjetos(obj1, obj2, callback)</b>  
+que recebe dois objetos e executa um callback que decide qual dos dois “ganha”.
+</p>
+
+<hr>
+
+<h3>💡 DICAS IMPORTANTES</h3>
+<ul>
+  <li>A função <b>compararObjetos</b> NÃO deve decidir o vencedor — quem decide é o callback!</li>
+  <li>O callback deve receber os 2 objetos e devolver 1 deles.</li>
+  <li>Use o <b>return callback(obj1, obj2)</b> dentro da função principal.</li>
+  <li>Teste com diferentes callbacks (maior idade, maior salário, maior pontuação, etc.)</li>
+</ul>
+
+<hr>
+
+<p><b>🔹 Estrutura sugerida:</b></p>
+<pre>
+function compararObjetos(obj1, obj2, callback) {
+    // Dica: a função não sabe como comparar, apenas chama o callback:
+    return callback(obj1, obj2);
+}
+</pre>
+
+<p><b>🔍 Exemplo de callback possível:</b></p>
+<pre>
+function maiorIdade(p1, p2) {
+    // Dica: usar operador condicional ( ? : )
+    return p1.idade > p2.idade ? p1 : p2;
+}
+</pre>
+
+<p><b>🧪 Teste com:</b></p>
+<pre>
+let pessoa1 = { nome: "Ana", idade: 22 };
+let pessoa2 = { nome: "Carlos", idade: 30 };
+
+// Dica: Chamar assim:
+compararObjetos(pessoa1, pessoa2, maiorIdade);
+</pre>
+
+<h2>🗳️ Exercício 11 — Simulação de Votação com Ciclo</h2>
+<p>Crie um objeto <b>votacao</b> com:</p>
+
+<ul>
+  <li>candidato1 → votos (inicia em 0)</li>
+  <li>candidato2 → votos (inicia em 0)</li>
+</ul>
+
+<p><b>Funções necessárias:</b></p>
+<ul>
+  <li><b>votar(candidato)</b> → adiciona 1 voto ao candidato escolhido</li>
+  <li><b>mostrarResultado()</b> → mostra qual candidato venceu ou se houve empate</li>
+  <li><b>iniciarVotacao(totalVotos)</b> → usa um ciclo <b>for</b> para simular votos aleatórios</li>
+</ul>
+
+<hr>
+
+<h3>💡 DICAS IMPORTANTES</h3>
+<ul>
+  <li>Use <b>Math.random()</b> para gerar um número aleatório entre 0 e 1.</li>
+  <li>Se o número for menor que <b>0.5</b>, vote no candidato1. Caso contrário, vote no candidato2.</li>
+  <li>Para repetir várias vezes, use <b>um ciclo for</b> com contador.</li>
+  <li>Para aceder a uma propriedade por nome (string) use <b>this[candidato]</b> dentro do objeto.</li>
+</ul>
+
+<p><b>🔹 Exemplo do raciocínio com o ciclo:</b></p>
+<pre>
+for (let i = 0; i < totalVotos; i++) {
+    if (Math.random() < 0.5) {
+        votacao.votar("candidato1");
+    } else {
+        votacao.votar("candidato2");
+    }
+}
+</pre>
+
+<p><b>Objetivo final:</b> Simular 20 ou 50 votos aleatórios e mostrar quem ganhou!</p>
+
+</body>
+</html>

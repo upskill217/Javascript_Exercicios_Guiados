@@ -111,30 +111,34 @@ const contaBancaria = {
   titular: "Luana Barros",
   saldo: 1000,
   depositar(valor) {
+    console.log(`${this.titular} depositou ${valor}€.`);
     this.saldo += valor;
   },
   levantar(valor) {
+    console.log(`${this.titular} levantou ${valor}€.`);
     this.saldo -= valor;
   },
   mostarSaldo() {
-    console.log(`O saldo de ${this.titular} é  ${this.saldo}€`);
+    console.log(`O saldo de ${this.titular} é ${this.saldo}€.`);
   },
 };
 
 //DESAFIO EXTRA: Crie uma função externa operacaoSegura(conta, valor, funcao)
 // que executa a função apenas se o valor for positivo.
-function operacaoSegura(conta, valor, callback) {
+function operacaoSegura(conta, valor, funcao) {
   if (valor > 0) {
-    return callback.call(conta, valor);
+    return funcao.call(conta, valor);
   } else {
     console.log("Operação inválida: o valor deve ser positivo.");
     return null;
   }
 }
 
-//testar funçãoo
-operacaoSegura(contaBancaria, 50, contaBancaria.depositar);
-operacaoSegura(contaBancaria, 500, contaBancaria.levantar);
+//mostrar saldo inicial
+contaBancaria.mostarSaldo();
+//testar operação
+operacaoSegura(contaBancaria, 800, contaBancaria.levantar);
+operacaoSegura(contaBancaria, 500, contaBancaria.depositar);
 operacaoSegura(contaBancaria, -100, contaBancaria.depositar);
 //ver saldo
 contaBancaria.mostarSaldo();

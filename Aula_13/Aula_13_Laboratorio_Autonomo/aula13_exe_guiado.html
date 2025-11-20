@@ -1,0 +1,189 @@
+<html>
+<head>
+<style>
+body { color: black; font-family: Arial; line-height: 1.6; }
+h1 { color: #006600; }
+hr { margin: 20px 0; }
+pre { background-color: #f0f0f0; padding: 10px; }
+b { background-color: #f0f0f0; padding: 2px 4px; }
+</style>
+</head>
+
+<body>
+
+<h1>💡 Exercícios II — Objetos, Funções e Ciclos em JavaScript</h1>
+
+<h2>Objetivo</h2>
+<ul>
+<li>Praticar a criação de múltiplas classes/objetos com propriedades e métodos.</li>
+<li>Usar múltiplos ciclos dentro de métodos.</li>
+<li>Interagir objetos entre si sem usar arrays.</li>
+<li>Implementar funções externas que operam sobre objetos.</li>
+</ul>
+<hr>
+
+<h2>📝 Exercício 1 — Sistema Bancário Complexo</h2>
+<p>Crie cinco classes/objetos e implemente métodos detalhados:</p>
+
+<ul>
+  <li><b>Conta</b>: 
+    <ul>
+      <li><b>depositar(valor)</b> → adiciona valor ao saldo; mostrar saldo.</li>
+      <li><b>levantar(valor)</b> → subtrai valor do saldo se houver saldo; mostrar saldo.</li>
+      <li><b>aplicarJuros(taxa, anos)</b> → ciclo for para aplicar juros ano a ano; mostrar saldo em cada ano.</li>
+      <li><b>mostrarSaldo()</b> → imprime saldo atual.</li>
+    </ul>
+  </li>
+
+  <li><b>Cliente</b>:
+    <ul>
+      <li><b>transferir(valor, outraConta)</b> → retira de sua conta e adiciona à outra.</li>
+      <li><b>mostrarSaldo()</b> → mostra saldo da conta.</li>
+      <li><b>aniversario()</b> → bônus de saldo anual; use ciclo for para anos passados.</li>
+      <li><b>presentear(valor)</b> → transfere valor a outro cliente.</li>
+    </ul>
+  </li>
+
+  <li><b>Banco</b>:
+    <ul>
+      <li><b>simularDia()</b> → aplica juros diários em cada cliente usando ciclo.</li>
+      <li><b>relatorio()</b> → imprime saldo de todos os clientes.</li>
+      <li><b>aplicarTaxaDia(taxa)</b> → aplica taxa diária a todas contas.</li>
+      <li><b>resumoTotal()</b> → soma e mostra saldo total do banco.</li>
+    </ul>
+  </li>
+
+  <li><b>Gerente</b>:
+    <ul>
+      <li><b>auditar(conta)</b> → imprime histórico e saldo da conta.</li>
+      <li><b>bonificar(cliente, valor)</b> → adiciona bônus ao saldo do cliente.</li>
+      <li><b>reduzirSaldo(cliente, valor)</b> → subtrai valor com segurança.</li>
+      <li><b>mostrarResumo()</b> → mostra resumo do banco e clientes.</li>
+    </ul>
+  </li>
+
+  <li><b>CaixaEletronico</b>:
+    <ul>
+      <li><b>sacar(cliente, valor)</b> → chama método levantar do cliente.</li>
+      <li><b>depositar(cliente, valor)</b> → chama método depositar do cliente.</li>
+      <li><b>mostrarSaldo(cliente)</b> → imprime saldo do cliente.</li>
+      <li><b>simularTransacoes(dias)</b> → ciclo for para simular transações diárias.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+
+<h2>📝 Exercício 2 — Escola e Provas</h2>
+<p>Crie cinco classes/objetos e implemente métodos detalhados:</p>
+
+<ul>
+  <li><b>Aluno</b>:
+    <ul>
+      <li><b>realizarProva(prova)</b> → ciclo para responder todas as questões; atribuir pontos aleatórios.</li>
+      <li><b>calcularMedia()</b> → soma notas e divide por quantidade de provas simuladas.</li>
+      <li><b>estudar(horas)</b> → incrementa notaFinal baseado em horas estudadas.</li>
+      <li><b>receberBonus(pontos)</b> → adiciona pontos extras à notaFinal.</li>
+    </ul>
+  </li>
+
+  <li><b>Prova</b>:
+    <ul>
+      <li><b>aplicarQuestao(aluno)</b> → ciclo para cada questão; gera nota aleatória.</li>
+      <li><b>corrigir()</b> → ajusta notas baseadas em respostas.</li>
+      <li><b>mostrarResultado()</b> → imprime resultado do aluno.</li>
+      <li><b>simular()</b> → ciclo para aplicar prova a múltiplos alunos.</li>
+    </ul>
+  </li>
+
+  <li><b>Professor</b>:
+    <ul>
+      <li><b>aplicarProva(aluno, prova)</b> → chama método do aluno para responder prova.</li>
+      <li><b>corrigirProva(aluno, prova)</b> → corrige usando métodos da prova.</li>
+      <li><b>darBonus(aluno)</b> → incrementa pontos extra.</li>
+      <li><b>mostrarNotas(aluno)</b> → imprime notaFinal do aluno.</li>
+    </ul>
+  </li>
+
+  <li><b>Disciplina</b>:
+    <ul>
+      <li><b>iniciarAula()</b> → ciclo para todos os alunos participarem.</li>
+      <li><b>aplicarProvas()</b> → chama métodos de aplicarProva do professor.</li>
+      <li><b>resumo()</b> → mostra todas notas.</li>
+      <li><b>ranking()</b> → compara notas de alunos e mostra ordem.</li>
+    </ul>
+  </li>
+
+  <li><b>Secretaria</b>:
+    <ul>
+      <li><b>registrarAluno(aluno)</b> → adiciona aluno ao sistema.</li>
+      <li><b>gerarBoletim(aluno)</b> → imprime boletim.</li>
+      <li><b>simularDia()</b> → ciclo para todas atividades escolares.</li>
+      <li><b>atualizarNotas(aluno)</b> → ajusta notaFinal conforme regras.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+
+<h2>📝 Exercício 3 — Corrida Automobilística</h2>
+<p>Crie cinco classes/objetos e implemente métodos detalhados:</p>
+
+<ul>
+  <li><b>Carro</b>:
+    <ul>
+      <li><b>acelerar()</b> → aumenta velocidade; ciclo para simular aceleração progressiva.</li>
+      <li><b>frear()</b> → reduz velocidade gradualmente.</li>
+      <li><b>resetar()</b> → velocidade volta a zero.</li>
+      <li><b>status()</b> → mostra velocidade atual.</li>
+    </ul>
+  </li>
+
+  <li><b>Piloto</b>:
+    <ul>
+      <li><b>dirigir(voltas)</b> → ciclo for para cada volta; altera velocidade usando Carro.</li>
+      <li><b>mostrarVelocidade()</b> → imprime velocidade atual do carro.</li>
+      <li><b>descansar()</b> → pausa entre voltas.</li>
+      <li><b>penalizar()</b> → reduz velocidade por penalidade.</li>
+    </ul>
+  </li>
+
+  <li><b>Corrida</b>:
+    <ul>
+      <li><b>iniciar(voltas)</b> → ciclo for para cada volta; chama dirigir de cada piloto.</li>
+      <li><b>verificarVencedor()</b> → compara velocidades finais.</li>
+      <li><b>relatorio()</b> → mostra resultados de cada piloto.</li>
+      <li><b>simularPitStop()</b> → reduz velocidade temporariamente; ciclo para pit stops múltiplos.</li>
+    </ul>
+  </li>
+
+  <li><b>Equipe</b>:
+    <ul>
+      <li><b>prepararCarro()</b> → ajusta carro antes da corrida.</li>
+      <li><b>ajustarVelocidade()</b> → otimiza aceleração e frenagem.</li>
+      <li><b>monitorarPiloto()</b> → acompanha performance; ciclo de voltas.</li>
+      <li><b>estrategia()</b> → decide quando piloto deve acelerar ou reduzir.</li>
+    </ul>
+  </li>
+
+  <li><b>Juiz</b>:
+    <ul>
+      <li><b>aplicarPenalidade(piloto)</b> → reduz velocidade por infração.</li>
+      <li><b>conferirResultados()</b> → verifica velocidade e posição.</li>
+      <li><b>relatorioFinal()</b> → imprime classificação final.</li>
+      <li><b>alertarPiloto(piloto)</b> → mensagem de aviso.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+
+<p><b>📥 Instruções de Entrega (Moodle)</b></p>
+<ul>
+<li>Crie um ficheiro JavaScript chamado <b>exerciciosAvancados.js</b>.</li>
+<li>Implemente todas as classes e métodos descritos nos exercícios acima.</li>
+<li>Faça upload do ficheiro (.js) na atividade correspondente no Moodle.</li>
+</ul>
+
+</body>
+</html>
