@@ -1,0 +1,116 @@
+<html>
+<head>
+<style>
+body { color: black; font-family: Arial; line-height: 1.6; }
+h1 { color: #006600; }
+hr { margin: 20px 0; }
+pre { background-color: #f0f0f0; padding: 10px; }
+b { background-color: #f0f0f0; padding: 2px 4px; }
+</style>
+</head>
+
+<body>
+
+<h1>💡 Exercícios Guiados – Arrays em JavaScript</h1>
+
+<h2>Objetivo</h2>
+<ul>
+<li>Praticar criação e manipulação de arrays.</li>
+<li>Explorar métodos importantes: <b>map, filter, reduce, forEach, push, pop, shift, unshift, includes, indexOf</b>.</li>
+<li>Aprender a criar funções que operam sobre arrays.</li>
+</ul>
+<hr>
+
+<!-- EXERCÍCIO 1 -->
+<h2>📝 Exercício 1 — Criar um Array</h2>
+<p>Cria um array chamado <b>frutas</b> contendo os valores: "maçã", "banana", "laranja".</p>
+<p><b>Extra:</b> imprime o array no console.</p>
+
+<hr>
+
+<!-- EXERCÍCIO 2 -->
+<h2>📝 Exercício 2 — Acessar elementos e índice</h2>
+<p>Usa o array <b>frutas</b> e imprime no console:</p>
+<pre>
+O primeiro elemento
+O último elemento
+Todos os elementos com seus índices
+</pre>
+<p><b>Dica:</b> podes usar <b>for</b> ou <b>forEach</b>.</p>
+
+<hr>
+
+<!-- EXERCÍCIO 3 -->
+<h2>📝 Exercício 3 — Adicionar e remover elementos</h2>
+<p>Usa <b>push</b> para adicionar "uva" no final e <b>unshift</b> para adicionar "kiwi" no início.  
+Depois, remove o último elemento com <b>pop</b> e o primeiro com <b>shift</b>.  
+Imprime o array final.</p>
+
+<hr>
+
+<!-- EXERCÍCIO 4 -->
+<h2>📝 Exercício 4 — Verificar existência e posição</h2>
+<p>Usa <b>includes</b> para verificar se "banana" está no array e <b>indexOf</b> para descobrir a posição de "laranja".</p>
+
+<hr>
+
+<!-- EXERCÍCIO 5 -->
+<h2>📝 Exercício 5 — Iterar com forEach</h2>
+<p>Usa <b>forEach</b> para imprimir cada fruta no console com a seguinte formatação:</p>
+<pre>
+"Fruta: maçã"
+"Fruta: banana"
+...
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 6 -->
+<h2>📝 Exercício 6 — Transformar com map</h2>
+<p>Cria um array <b>numeros</b> com os valores [1, 2, 3, 4, 5].  
+Usa <b>map</b> para criar um novo array <b>quadrados</b> com os quadrados de cada número.  
+Imprime o resultado.</p>
+
+<hr>
+
+<!-- EXERCÍCIO 7 -->
+<h2>📝 Exercício 7 — Filtrar valores com filter</h2>
+<p>Usa o array <b>numeros</b> do exercício anterior e cria um novo array contendo apenas os números maiores que 3 usando <b>filter</b>.</p>
+
+<hr>
+
+<!-- EXERCÍCIO 8 -->
+<h2>📝 Exercício 8 — Reduzir valores com reduce</h2>
+<p>Usa o array <b>numeros</b> para calcular a soma de todos os elementos usando <b>reduce</b>.  
+Depois, calcula o produto de todos os números (multiplicando os elementos).</p>
+
+<hr>
+
+<!-- EXERCÍCIO 9 -->
+<h2>📝 Exercício 9 — Função que processa arrays</h2>
+<p>Cria uma função <b>processarArray(array, funcao)</b> que recebe um array e uma função callback.  
+A função callback deve ser aplicada a cada elemento do array e imprimir o resultado.</p>
+<p><b>Exemplo:</b> passar uma função que dobre cada elemento.</p>
+
+<hr>
+
+<!-- EXERCÍCIO 10 -->
+<h2>📝 Exercício 10 — Lista de compras com estatísticas</h2>
+<p>Cria um array de objetos <b>compras</b>, cada objeto com <b>produto</b>, <b>preco</b> e <b>quantidade</b>:</p>
+<pre>
+[
+  { produto: "Arroz", preco: 2.5, quantidade: 2 },
+  { produto: "Leite", preco: 1.8, quantidade: 3 },
+  { produto: "Pão", preco: 0.25, quantidade: 10 }
+]
+</pre>
+<p>Usa os métodos de array para:</p>
+<ul>
+<li>Imprimir todos os produtos</li>
+<li>Calcular o total gasto usando <b>reduce</b></li>
+<li>Filtrar produtos que custam mais de 2€</li>
+<li>Criar uma lista apenas com os nomes dos produtos usando <b>map</b></li>
+</ul>
+
+</body>
+</html>

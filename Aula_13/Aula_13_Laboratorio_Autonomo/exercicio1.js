@@ -1,3 +1,4 @@
+
 /* Exercício 1 — Sistema Bancário Complexo */
 console.log("Exercício 1 — Sistema Bancário Complexo");
 
@@ -29,11 +30,6 @@ const conta = {
     console.log(`Saldo Atual: ${this.saldo.toFixed(2)}`);
   },
 };
-conta.depositar(100);
-conta.levantar(50);
-conta.aplicarJuros(0.03, 5);
-conta.mostrarSaldo();
-console.log("\n");
 
 //classe/objeto Cliente
 const cliente = {
@@ -47,37 +43,96 @@ const cliente = {
     //mostra saldo da conta.
     this.contaAtual.mostrarSaldo();
   },
-  aniversario() {
+  aniversario(anos, bonus) {
     //bônus de saldo anual; use ciclo for para anos passados.
+    for (let i = 1; i <= anos; i++) {
+      let valorBonusAnual = this.contaAtual.saldo * bonus;
+      this.contaAtual.saldo += valorBonusAnual;
+    }
   },
   presentear(valor, outroCliente) {
     //transfere valor a outro cliente.
     outroCliente.depositar(valor);
   },
 };
+
 cliente.contaAtual.depositar(100);
 cliente.contaAtual.levantar(50);
+cliente.contaAtual.aplicarJuros(0.03, 5);
+cliente.contaAtual.mostrarSaldo();
+console.log("\nBonus de 5% por cada aniversario")
+cliente.aniversario(5, 0.05);
+cliente.mostrarSaldo();
 console.log("\n");
 
 //classe/objeto Banco
 const banco = {
-  saldoTotal: 0,
+  saldoBancoTotal: 1000000,
+  jurosDiario: 0.01,
   simularDia(cliente, dia) {
     //aplica juros diários em cada cliente usando ciclo.
+    for (let i = 1; i <= dia; i++) {
+      let valor = Math.floor(Math.random() * 1000);
+      if (Math.random() < 0.5) {
+        //saca e paga juros diario
+        console.log(`Dia ${i} - Sacar ${valor.toFixed(2)}`);
+        let valorJuros = valor * this.jurosDiario;
+        valor += valorJuros;
+        console.log(
+          `Com juros diario de ${this.jurosDiario} fica ${valor.toFixed(2)}`
+        );
+        cliente.contaAtual.levantar(valor);
+        this.saldoBancoTotal += valor * this.jurosDiario;
+      } else {
+        //deposita e paga juros diario
+        console.log(`Dia ${i} - Depositar ${valor.toFixed(2)}`);
+        let valorJuros = valor * this.jurosDiario;
+        valor += valorJuros;
+        console.log(
+          `Com juros diario de ${this.jurosDiario} fica ${valor.toFixed(2)}`
+        );
+        cliente.contaAtual.depositar(valor);
+        this.saldoBancoTotal += valor * this.jurosDiario;
+      }
+    }
+    this.resumoTotal();
   },
   relatorio(cliente) {
     //imprime saldo de todos os clientes.
+    cliente.mostrarSaldo();
   },
-  aplicarTaxaDia(taxa) {
+  aplicarTaxaDia(taxa, cliente) {
     //aplica taxa diária a todas contas
+    //  cliente;
   },
-  resumoTotal(){
-    console.log(`Saldo total do Banco: ${this.saldoTotal.toFixed(2)}.`)
-  }
+  resumoTotal() {
+    console.log(`\nSaldo total do Banco: ${this.saldoBancoTotal.toFixed(2)}.`);
+  },
 };
 
+//banco.simularDia(cliente, 7);
+//banco.resumoTotal();
+//console.log("\n");
+
 //classe/objeto Gerente
-const gerente = {};
+const gerente = {
+  auditar(conta) {
+    // imprime histórico e saldo da conta.
+    conta.mostrarSaldo();
+  },
+  bonificar(cliente, valor) {
+    // adiciona bônus ao saldo do cliente.
+    cliente.contaAtual.depositar(valor);
+  },
+  reduzirSalario(cliente, valor) {
+    // subtrai valor com segurança.
+    cliente.contaAtual.levantar(valor);
+  },
+  mostrarResumo(banco) {
+    // mostra resumo do banco e clientes
+    banco.resumoTotal();
+  },
+};
 
 //classe/objeto CaixaEletronico
 const caixaEletronico = {
@@ -90,8 +145,8 @@ const caixaEletronico = {
   mostrarSaldo(cliente) {
     cliente.mostrarSaldo();
   },
-  simularTransaccoes(cliente, dias) {
-    for (let i = 1; i <= dias; i++) {
+  simularTransaccoes(banco, cliente, dias) {
+   /* for (let i = 1; i <= dias; i++) {
       let valor = Math.floor(Math.random() * 1000);
       if (Math.random() < 0.5) {
         //sacar
@@ -102,14 +157,10 @@ const caixaEletronico = {
         console.log(`Dia ${i} - Depositar ${valor.toFixed(2)}`);
         this.depositar(cliente, valor);
       }
-    }
+    }*/
+    banco.simularDia(cliente, dias);
   },
 };
 
-caixaEletronico.simularTransaccoes(cliente, 30);
+caixaEletronico.simularTransaccoes(banco,cliente, 30);
 
-/* Exercício 2 — Escola e Provas */
-console.log("\nExercício 2 — Escola e Provas");
-
-/* Exercício 3 — Corrida Automobilística */
-console.log("\nExercício 3 — Corrida Automobilística");
