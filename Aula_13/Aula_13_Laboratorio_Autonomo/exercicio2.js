@@ -1,3 +1,5 @@
+const { corrida, piloto, carro } = require("./exercicio3");
+
 /* Exercício 2 — Escola e Provas */
 console.log("\nExercício 2 — Escola e Provas");
 
@@ -76,3 +78,4 @@ const secretaria = {
     //ajusta notaFinal conforme regras.
   },
 };
+

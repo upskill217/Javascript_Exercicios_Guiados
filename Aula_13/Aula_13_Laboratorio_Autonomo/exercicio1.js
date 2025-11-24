@@ -27,12 +27,13 @@ const conta = {
   },
   mostrarSaldo() {
     //→ imprime saldo atual.
-    console.log(`Saldo Atual: ${this.saldo.toFixed(2)}`);
+    console.log(`Saldo Atual: ${this.saldo.toFixed(2)}\n`);
   },
 };
 
 //classe/objeto Cliente
 const cliente = {
+  identificador: "Cliente 1",
   contaAtual: conta,
   transferir(valor, outraConta) {
     //retira de sua conta e adiciona à outra.
@@ -41,6 +42,7 @@ const cliente = {
   },
   mostrarSaldo() {
     //mostra saldo da conta.
+    console.log(`--- Saldo de ${this.identificador} ---`);
     this.contaAtual.mostrarSaldo();
   },
   aniversario(anos, bonus) {
@@ -56,14 +58,7 @@ const cliente = {
   },
 };
 
-cliente.contaAtual.depositar(100);
-cliente.contaAtual.levantar(50);
-cliente.contaAtual.aplicarJuros(0.03, 5);
-cliente.contaAtual.mostrarSaldo();
-console.log("\nBonus de 5% por cada aniversario")
-cliente.aniversario(5, 0.05);
-cliente.mostrarSaldo();
-console.log("\n");
+
 
 //classe/objeto Banco
 const banco = {
@@ -99,33 +94,33 @@ const banco = {
   },
   relatorio(cliente) {
     //imprime saldo de todos os clientes.
-    cliente.mostrarSaldo();
+   console.log(`Saldo de ${cliente.identificador}: ${cliente.mostrarSaldo()}`);
   },
   aplicarTaxaDia(taxa, cliente) {
     //aplica taxa diária a todas contas
     //  cliente;
   },
   resumoTotal() {
-    console.log(`\nSaldo total do Banco: ${this.saldoBancoTotal.toFixed(2)}.`);
+    console.log(`Saldo total do Banco: ${this.saldoBancoTotal.toFixed(2)}.`);
   },
 };
 
-//banco.simularDia(cliente, 7);
-//banco.resumoTotal();
-//console.log("\n");
-
 //classe/objeto Gerente
 const gerente = {
-  auditar(conta) {
+  auditar(cliente) {
     // imprime histórico e saldo da conta.
-    conta.mostrarSaldo();
+    console.log(`--- Histórico de ${cliente.identificador} ---`);
+    cliente.mostrarSaldo();
   },
   bonificar(cliente, valor) {
     // adiciona bônus ao saldo do cliente.
+    console.log(`Bonificar ${cliente.identificador} com valor de ${valor}`);
     cliente.contaAtual.depositar(valor);
+    cliente.mostrarSaldo();
   },
   reduzirSalario(cliente, valor) {
     // subtrai valor com segurança.
+    console.log(`Reduzir o salario do ${cliente.identificador} com valor de ${valor}`);
     cliente.contaAtual.levantar(valor);
   },
   mostrarResumo(banco) {
@@ -146,21 +141,30 @@ const caixaEletronico = {
     cliente.mostrarSaldo();
   },
   simularTransaccoes(banco, cliente, dias) {
-   /* for (let i = 1; i <= dias; i++) {
-      let valor = Math.floor(Math.random() * 1000);
-      if (Math.random() < 0.5) {
-        //sacar
-        console.log(`Dia ${i} - Sacar ${valor.toFixed(2)}`);
-        this.sacar(cliente, valor);
-      } else {
-        //depositar
-        console.log(`Dia ${i} - Depositar ${valor.toFixed(2)}`);
-        this.depositar(cliente, valor);
-      }
-    }*/
+    //  simular transações diárias.
     banco.simularDia(cliente, dias);
   },
 };
 
+console.log("\n--- CLIENTE ---");
+console.log("Deposito de 100 EUR...");
+cliente.contaAtual.depositar(100);
+console.log("Saque de 50 EUR...");
+cliente.contaAtual.levantar(50);
+console.log("Aplicar 3% de juros por 5 anos...");
+cliente.contaAtual.aplicarJuros(0.03, 5);
+cliente.contaAtual.mostrarSaldo();
+console.log("Bonus de 5% por cada aniversario...")
+cliente.aniversario(5, 0.05);
+cliente.mostrarSaldo();
+
+console.log("-- GERENTE ---"); 
+gerente.auditar(cliente);
+gerente.bonificar(cliente, 100);
+gerente.reduzirSalario(cliente, 50);
+console.log("\n--- MOSTRAR RESUMO ---");
+gerente.mostrarResumo(banco);
+
+console.log("\n--- CAIXA ELETRONICO - SIMULANDO 30 DIAS ---");
 caixaEletronico.simularTransaccoes(banco,cliente, 30);
 
