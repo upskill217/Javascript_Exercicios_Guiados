@@ -193,7 +193,7 @@ class Gerente {
   bonificar(cliente, valor) {
     // adiciona bônus ao saldo do cliente.
     console.log(`Bonificar ${cliente.identificador} com valor de ${valor}`);
-    cliente.contaAtual.depositar(valor);
+    cliente.conta.depositar(valor);
     cliente.mostrarSaldo();
   }
   reduzirSalario(cliente, valor) {
@@ -201,7 +201,7 @@ class Gerente {
     console.log(
       `Reduzir o salario do ${cliente.identificador} com valor de ${valor}`
     );
-    cliente.contaAtual.levantar(valor);
+    cliente.conta.levantar(valor);
   }
   mostrarResumo(banco) {
     // mostra resumo do banco e clientes
@@ -213,10 +213,10 @@ class Gerente {
 class CaixaEletronico {
   constructor() {}
   sacar(cliente, valor) {
-    cliente.contaAtual.levantar(valor);
+    cliente.conta.levantar(valor);
   }
   depositar(cliente, valor) {
-    cliente.contaAtual.depositar(valor);
+    cliente.conta.depositar(valor);
   }
   mostrarSaldo(cliente) {
     cliente.mostrarSaldo();
