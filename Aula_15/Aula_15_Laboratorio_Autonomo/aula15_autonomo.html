@@ -1,0 +1,128 @@
+<html>
+<head>
+<style>
+body { color: black; font-family: Arial; line-height: 1.6; }
+h1 { color: #006600; }
+hr { margin: 20px 0; }
+pre { background-color: #f0f0f0; padding: 10px; }
+b { background-color: #f0f0f0; padding: 2px 4px; }
+code { background-color: #f0f0f0; padding: 2px 4px; }
+</style>
+</head>
+
+<body>
+
+<h1>💡 Exercícios – Arrays de Objetos com Funções Diversas</h1>
+
+<h2>Objetivo</h2>
+<ul>
+  <li>Praticar métodos de arrays além de map/filter/reduce.</li>
+  <li>Explorar funções como <code>find</code>, <code>some</code>, <code>every</code>, <code>includes</code>, <code>sort</code>, <code>splice</code>, etc.</li>
+  <li>Aprender a manipular e consultar dados em arrays de objetos.</li>
+</ul>
+<hr>
+
+<!-- EXERCÍCIO 1 -->
+<h2>📝 Exercício 1 — Encontrar primeira pessoa com idade > 25 (find)</h2>
+<p>Use <code>find</code> para retornar o primeiro objeto com idade maior que 25.</p>
+<pre>
+const pessoas = [
+  { nome: "Ana", idade: 20 },
+  { nome: "João", idade: 25 },
+  { nome: "Maria", idade: 30 }
+];
+// Resultado esperado: { nome: "Maria", idade: 30 }
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 2 -->
+<h2>📝 Exercício 2 — Verificar se existe menor de idade (some)</h2>
+<p>Use <code>some</code> para verificar se existe pelo menos uma pessoa com idade < 18.</p>
+<pre>
+// Resultado esperado: false
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 3 -->
+<h2>📝 Exercício 3 — Verificar se todos são adultos (every)</h2>
+<p>Use <code>every</code> para verificar se todas as pessoas têm idade >= 18.</p>
+<pre>
+// Resultado esperado: true
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 4 -->
+<h2>📝 Exercício 4 — Verificar se array de nomes inclui "João" (includes + map)</h2>
+<p>Transforme os nomes em um array separado e use <code>includes</code>.</p>
+<pre>
+// Resultado esperado: true
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 5 -->
+<h2>📝 Exercício 5 — Ordenar por idade decrescente (sort)</h2>
+<p>Use <code>sort</code> para organizar do mais velho para o mais novo.</p>
+<pre>
+// Resultado esperado:
+[
+  { nome: "Maria", idade: 30 },
+  { nome: "João", idade: 25 },
+  { nome: "Ana", idade: 20 }
+]
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 6 -->
+<h2>📝 Exercício 6 — Remover pessoa no índice 1 (splice)</h2>
+<p>Use <code>splice</code> para remover o segundo elemento do array.</p>
+<pre>
+// Resultado esperado:
+[
+  { nome: "Ana", idade: 20 },
+  { nome: "Maria", idade: 30 }
+]
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 7 -->
+<h2>📝 Exercício 7 — Clonar array de objetos (spread)</h2>
+<p>Use spread ou <code>slice()</code> para criar uma cópia do array.</p>
+<pre>
+// Resultado esperado: cópia idêntica sem alterar o original
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 8 -->
+<h2>📝 Exercício 8 — Adicionar nova pessoa (push)</h2>
+<p>Use <code>push</code> para adicionar <code>{ nome: "Pedro", idade: 22 }</code> ao array.</p>
+<pre>
+// Resultado esperado: array com 4 objetos, Pedro incluso
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 9 -->
+<h2>📝 Exercício 9 — Remover o primeiro elemento (shift)</h2>
+<p>Use <code>shift</code> para remover a primeira pessoa do array.</p>
+<pre>
+// Resultado esperado: array sem Ana
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 10 -->
+<h2>📝 Exercício 10 — Adicionar elemento no início (unshift)</h2>
+<p>Use <code>unshift</code> para adicionar <code>{ nome: "Lucas", idade: 18 }</code> no início do array.</p>
+<pre>
+// Resultado esperado: Lucas é o primeiro elemento
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+<style>
+body { color: black; font-family: Arial; line-height: 1.6; }
+h1 { color: #006600; }
+hr { margin: 20px 0; }
+pre { background-color: #f0f0f0; padding: 10px; }
+b { background-color: #f0f0f0; padding: 2px 4px; }
+code { background-color: #f0f0f0; padding: 2px 4px; }
+</style>
+</head>
+
+<body>
+
+<h1>💡 Exercícios Avançados para Casa – map, filter e reduce</h1>
+
+<h2>Objetivo</h2>
+<ul>
+  <li>Praticar manipulação de arrays de objetos mais complexa.</li>
+  <li>Combinar métodos para transformar, filtrar e agregar dados.</li>
+  <li>Estimular o raciocínio lógico em problemas mais realistas.</li>
+</ul>
+<hr>
+
+<!-- EXERCÍCIO 1 -->
+<h2>📝 Exercício 1 — Lista de nomes de adultos com email válido (map + filter)</h2>
+<p>Dado o array de usuários, crie um array apenas com os nomes das pessoas maiores de 18 anos e que tenham email definido.</p>
+<pre>
+const usuarios = [
+  { nome: "Ana", email: "ana@email.com", idade: 20 },
+  { nome: "João", email: null, idade: 25 },
+  { nome: "Maria", email: "maria@email.com", idade: 30 },
+  { nome: "Pedro", email: "pedro@email.com", idade: 17 }
+];
+
+// Resultado esperado:
+// ["Ana", "Maria"]
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 2 -->
+<h2>📝 Exercício 2 — Média de idade dos usuários com email (filter + reduce)</h2>
+<p>Calcule a média de idade apenas dos usuários que têm email definido (não nulo ou vazio).</p>
+<pre>
+// Resultado esperado:
+// (20 + 30 + 17) / 3 = 22.33
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 3 -->
+<h2>📝 Exercício 3 — Array de mensagens personalizadas (map + filter)</h2>
+<p>Crie um array de strings com mensagens do tipo: <br>
+<b>"Olá, Ana! Você tem 20 anos."</b> <br>
+Apenas para os usuários com idade maior ou igual a 18 e que possuem email.</p>
+<pre>
+// Resultado esperado:
+// ["Olá, Ana! Você tem 20 anos.", "Olá, Maria! Você tem 30 anos."]
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<html>
+<head>
+<style>
+body { color: black; font-family: Arial; line-height: 1.6; }
+h1 { color: #006600; }
+hr { margin: 20px 0; }
+pre { background-color: #f0f0f0; padding: 10px; }
+b { background-color: #f0f0f0; padding: 2px 4px; }
+b { background-color: #f0f0f0; padding: 2px 4px; }
+</style>
+</head>
+
+<body>
+
+<h1>💡 Exercícios Guiados – Arrays de Objetos com map(), filter() e reduce()</h1>
+
+<h2>Objetivo</h2>
+<ul>
+  <li>Explicar estratégias para resolver cada exercício.</li>
+  <li>Mostrar o resultado esperado para validação rápida.</li>
+  <li>Apontar armadilhas e boas práticas (imutabilidade, uso de spread, etc.).</li>
+</ul>
+<hr>
+
+<!-- EXERCÍCIO 1 -->
+<h2>📝 Exercício 1 — Extrair só os nomes (map)</h2>
+<p><b>O que fazer</b>: usar <b>map</b> para transformar cada objeto no seu <b>nome</b>.</p>
+<p><b>Dicas:</b></p>
+<ul>
+  <li>Callback: <b>pessoas.map(p => p.nome)</b>.</li>
+  <li>Retorna novo array — não altera o original.</li>
+  <li>Teste com <b>console.log</b> para ver o array resultante.</li>
+</ul>
+<pre>
+Resultado esperado:
+["Ana", "João", "Maria"]
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 2 -->
+<h2>📝 Exercício 2 — Adicionar nova propriedade (map)</h2>
+<p><b>O que fazer</b>: usar <b>map</b> para criar um novo array onde cada objeto tem a propriedade <b>adulto</b> (true se <b>idade >= 18</b>).</p>
+<p><b>Dicas:</b></p>
+<ul>
+  <li>Use spread para não mutar o objeto original: <b>p => ({ ...p, adulto: p.idade >= 18 })</b>.</li>
+  <li>Evite alterar o array original (imutabilidade).</li>
+</ul>
+<pre>
+Resultado esperado:
+[
+  { nome: "Ana", idade: 20, adulto: true },
+  { nome: "João", idade: 25, adulto: true },
+  { nome: "Maria", idade: 30, adulto: true }
+]
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 3 -->
+<h2>📝 Exercício 3 — Filtrar maiores de idade (filter)</h2>
+<p><b>O que fazer</b>: usar <b>filter</b> para devolver só pessoas com <b>idade >= 25</b> (ou conforme pedido).</p>
+<p><b>Dicas:</b></p>
+<ul>
+  <li>Callback: <b>pessoas.filter(p => p.idade >= 25)</b>.</li>
+  <li>Filter retorna um novo array; o original permanece.</li>
+  <li>Verifique se a condição é correta (>= ou > dependendo do enunciado).</li>
+</ul>
+<pre>
+Resultado esperado:
+[
+  { nome: "João", idade: 25 },
+  { nome: "Maria", idade: 30 }
+]
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 4 -->
+<h2>📝 Exercício 4 — Procurar por nome específico (filter)</h2>
+<p><b>O que fazer</b>: criar função <b>procurar(arr, nome)</b> que utiliza <b>filter</b> para devolver todos os objetos com esse nome.</p>
+<p><b>Dicas:</b></p>
+<ul>
+  <li>Usar <b>arr.filter(p => p.nome === nome)</b>.</li>
+  <li>Se quiser busca case-insensitive, normalize com <b>.toLowerCase()</b> nos dois lados.</li>
+  <li>Se esperar só um resultado, <b>find</b> também pode ser usado (retorna o primeiro).</li>
+</ul>
+<pre>
+Exemplo:
+procurar(pessoas, "João")
+Resultado esperado: [{ nome: "João", idade: 25 }]
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 5 -->
+<h2>📝 Exercício 5 — Converter em frases (map)</h2>
+<p><b>O que fazer</b>: usar <b>map</b> para criar strings formatadas por pessoa.</p>
+<p><b>Dicas:</b></p>
+<ul>
+  <li>Use template strings: <b>p => `${p.nome} tem ${p.idade} anos.`</b>.</li>
+  <li>Verifique pontuação/acentuação conforme desejado.</li>
+</ul>
+<pre>
+Resultado esperado:
+[
+  "Ana tem 20 anos.",
+  "João tem 25 anos.",
+  "Maria tem 30 anos."
+]
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 6 -->
+<h2>📝 Exercício 6 — Média de idades (reduce)</h2>
+<p><b>O que fazer</b>: usar <b>reduce</b> para somar idades e depois dividir por <b>pessoas.length</b>.</p>
+<p><b>Dicas:</b></p>
+<ul>
+  <li>Soma: <b>const soma = pessoas.reduce((acc, p) => acc + p.idade, 0)</b>.</li>
+  <li>Se array puder ser vazio, proteja dividindo apenas se <b>length &gt; 0</b>.</li>
+  <li>Formatar (opcional) com <b>toFixed(2)</b>.</li>
+</ul>
+<pre>
+Resultado esperado: 25
+(20 + 25 + 30) / 3 = 25
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 7 -->
+<h2>📝 Exercício 7 — Soma total das idades (reduce)</h2>
+<p><b>O que fazer</b>: usar <b>reduce</b> para obter soma simples das idades.</p>
+<p><b>Dicas:</b></p>
+<ul>
+  <li>Reduce com valor inicial 0: <b>pessoas.reduce((acc, p) => acc + p.idade, 0)</b>.</li>
+  <li>Testar com console para confirmar o total.</li>
+</ul>
+<pre>
+Resultado esperado:
+75  // 20 + 25 + 30
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 8 -->
+<h2>📝 Exercício 8 — Contar adultos (filter + length)</h2>
+<p><b>O que fazer</b>: filtrar pessoas com <b>idade >= 18</b> e usar <b>.length</b> para contar.</p>
+<p><b>Dicas:</b></p>
+<ul>
+  <li>Ex.: <b>const adultos = pessoas.filter(p => p.idade >= 18).length</b>.</li>
+  <li>Se quiser apenas um booleano, use <b>some</b> (pelo menos 1) ou <b>every</b> (todos).</li>
+</ul>
+<pre>
+Resultado esperado:
+3  // (Ana, João e Maria são >= 18)
+</pre>
+
+<hr>
+<h2>📝 Exercício 9 — Listar nomes de pessoas com idade ímpar</h2>
+<p>Crie um array com os nomes de todas as pessoas cuja <b>idade</b> seja ímpar.</p>
+<p><b>Dicas:</b></p>
+<ul>
+  <li>Use <b>filter</b> para selecionar apenas idades ímpares: <b>p.idade % 2 !== 0</b></li>
+  <li>Use <b>map</b> para extrair os nomes.</li>
+</ul>
+<pre>
+Resultado esperado:
+["João", "Maria"]  <!-- Idades 25 e 30 são ímpares? (verificar dados) -->
+</pre>
+
+<hr>
+
+<!-- EXERCÍCIO 10 -->
+<h2>📝 Exercício 10 — Verificar se todos são adultos</h2>
+<p>Crie uma função que devolva <b>true</b> se todas as pessoas tiverem 18 anos ou mais.</p>
+<p><b>Dicas:</b></p>
+<ul>
+  <li>Use o método <b>every</b> para verificar a condição.</li>
+  <li>Exemplo: <b>pessoas.every(p => p.idade >= 18)</b></li>
+</ul>
+<pre>
+Resultado esperado:
+true  <!-- Se todos tiverem idade >= 18 -->
+</pre>
+
+
+
+
+</body>
+</html>
