@@ -11,7 +11,7 @@ console.log("\nExercício 2 — Acessar elementos e índice");
 //O primeiro elemento
 console.log(`O primeiro elemento: ${frutas[0]}`);
 console.log(`Outra forma - primeiro elemento: ${frutas.at(0)}`);
-//O último elemento 
+//O último elemento
 console.log(`O último elemento: ${frutas[frutas.length - 1]}`);
 console.log(`Outra forma - último elemento: ${frutas.at(-1)}`);
 //Todos os elementos com seus índices
@@ -54,3 +54,27 @@ console.log("\nExercício 5 — Iterar com forEach");
 frutas.forEach((valor) => {
   console.log(`Fruta: ${valor}`);
 });
+
+/* Exercício 6 — Transformar com map */
+console.log("\nExercício 6 — Transformar com map");
+
+const numeros = [1, 2, 3, 4, 5];
+console.log("Original: ", numeros);
+
+//novo array quadrados com os quadrados de cada número
+let novoArray = numeros.map((n) => n * 2);
+console.log("Quadrados: ", novoArray);
+
+/* Exercício 7 — Filtrar valores com filter */
+console.log("\nExercício 7 — Filtrar valores com filter");
+
+//novo array contendo apenas os números maiores que 3 usando
+let maiorQue3 = numeros.filter((n) => n > 3);
+console.log("Numero Maior que 3: ", maiorQue3);
+
+/* Exercício 8 — Reduzir valores com reduce */
+console.log("\nExercício 8 — Reduzir valores com reduce");
+
+//para calcular a soma de todos os elementos usando
+let total = numeros.reduce((acc, n) => acc + n, 0);
+console.log("Soma total: ", total);
