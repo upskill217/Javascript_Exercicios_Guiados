@@ -255,6 +255,7 @@ console.log("\nBANCO - MOSTRAR RELATORIO DO CLIENTE 2");
 banco.relatorio(cliente2);
 console.log("------");
 
+<<<<<<< HEAD
 //CRIAÇÃO DE OBJETOS DO TIPO GERENTE
 const gerente = new Gerente();
 
@@ -305,3 +306,49 @@ console.log("\n SIMULAR TRANSAÇÕES ");
 caixaEletronico.simularTransaccoes(banco, cliente1, 30);
 caixaEletronico.simularTransaccoes(banco, cliente2, 30);
 console.log("------");
+=======
+//classe/objeto Gerente
+class Gerente {
+  constructor() {}
+  auditar(cliente) {
+    // imprime histórico e saldo da conta.
+    console.log(`--- Histórico de ${cliente.identificador} ---`);
+    cliente.mostrarSaldo();
+  }
+  bonificar(cliente, valor) {
+    // adiciona bônus ao saldo do cliente.
+    console.log(`Bonificar ${cliente.identificador} com valor de ${valor}`);
+    cliente.conta.depositar(valor);
+    cliente.mostrarSaldo();
+  }
+  reduzirSalario(cliente, valor) {
+    // subtrai valor com segurança.
+    console.log(
+      `Reduzir o salario do ${cliente.identificador} com valor de ${valor}`
+    );
+    cliente.conta.levantar(valor);
+  }
+  mostrarResumo(banco) {
+    // mostra resumo do banco e clientes
+    banco.resumoTotal();
+  }
+}
+
+//classe/objeto CaixaEletronico
+class CaixaEletronico {
+  constructor() {}
+  sacar(cliente, valor) {
+    cliente.conta.levantar(valor);
+  }
+  depositar(cliente, valor) {
+    cliente.conta.depositar(valor);
+  }
+  mostrarSaldo(cliente) {
+    cliente.mostrarSaldo();
+  }
+  simularTransaccoes(banco, cliente, dias) {
+    //  simular transações diárias.
+    banco.simularDia(cliente, dias);
+  }
+}
+>>>>>>> fccb20091b9808f8f009ad0a14e753fc77931212
