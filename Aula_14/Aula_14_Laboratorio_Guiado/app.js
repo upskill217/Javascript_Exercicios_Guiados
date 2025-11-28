@@ -78,3 +78,58 @@ console.log("\nExercício 8 — Reduzir valores com reduce");
 //para calcular a soma de todos os elementos usando
 let total = numeros.reduce((acc, n) => acc + n, 0);
 console.log("Soma total: ", total);
+
+/* Exercício 9 — Função que processa arrays */
+console.log("\nExercício 9 — Função que processa arrays");
+
+//Cria uma função processarArray(array, funcao) que recebe um array
+//e uma função callback. A função callback deve ser aplicada a cada
+//elemento do array e imprimir o resultado.
+function processarArray(array, funcao) {
+  for (let n of array) {
+    const result = funcao(n);
+    console.log(result);
+  }
+}
+
+//passar uma função que dobre cada elemento.
+function dobrar(n) {
+  return n * 2;
+}
+
+processarArray(numeros, dobrar);
+
+/* Exercício 10 — Lista de compras com estatísticas */
+console.log("\nExercício 10 — Lista de compras com estatísticas");
+
+//Cria um array de objetos compras, cada objeto com produto, preco e quantidade:
+const compras = [
+  { produto: "Arroz", preco: 2.5, quantidade: 2 },
+  { produto: "Leite", preco: 1.8, quantidade: 3 },
+  { produto: "Pão", preco: 0.25, quantidade: 10 },
+];
+
+//Imprimir todos os produtos
+console.log("\n--- Imprimir todos os produtos ---");
+compras.forEach((compra) => {
+  console.log(
+    `produto: ${compra.produto}, preço: ${compra.preco}, quantidade: ${compra.quantidade}`
+  );
+});
+
+//Calcular o total gasto usando reduce
+console.log("\n--- Calcular o total gasto usando reduce ---");
+let totalGasto2 = compras.reduce((acc, c) => acc + c.preco * c.quantidade, 0);
+console.log(`Gasto Total: ${totalGasto2}`);
+
+//Filtrar produtos que custam mais de 2€
+console.log("\n--- Filtrar produtos que custam mais de 2€ ---");
+let produtoMais2Euros = compras.filter((c) => c.preco > 2);
+console.log(produtoMais2Euros);
+
+//Criar uma lista apenas com os nomes dos produtos usando map
+console.log(
+  "\n--- Criar uma lista apenas com os nomes dos produtos usando map ---"
+);
+let nomes = compras.map((c) => c.produto);
+console.log(nomes);
