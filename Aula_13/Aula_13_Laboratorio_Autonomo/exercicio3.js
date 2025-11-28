@@ -7,7 +7,7 @@ class Carro {
   }
   acelerar() {
     //mostra velocidade atual
-    console.log(`velocidade atual:${this.velocidade}`);
+    console.log(`velocidade atual: ${this.velocidade}`);
   }
   frear() {
     //aumenta velocidade; ciclo para simular aceleração progressiva.
@@ -26,39 +26,43 @@ class Carro {
 }
 
 class Piloto {
-  constructor() {
-    this.identificador = "Piloto 1";
+  constructor(identificador) {
+    this.identificador = identificador;
   }
   dirigir(voltas, carro) {
     //ciclo for para cada volta; altera velocidade usando Carro.
     for (let i = 0; i < voltas; i++) {
-      console.log(`--- Volta ${i + 1} ---`);
-      console.log(`Velocidade do carro: ${carro.acelerar()}`);
+      console.log(`\n--- Volta ${i + 1} ---`);
+      carro.acelerar();
       carro.frear();
-      console.log("O carro aumentou a velocidade.");
-      console.log(`Nova velocidade do carro: ${carro.acelerar()}`);
+      console.log("O carro aumentou a velocidade...");
+      carro.acelerar();
       carro.resetar();
-      console.log("O carro reduziu gradualmente a velocidade.");
-      console.log(`Nova velocidade do carro: ${carro.acelerar()}\n`);
+      console.log(
+        "O carro reduziu gradualmente a velocidade para entrar na curva..."
+      );
+      carro.acelerar();
+      //descansar 2 segundos em cada 2 voltas
+      this.descansar(i + 1, 2000);
     }
   }
   mostrarVelocidade(carro) {
     // imprime velocidade atual do carro.
-    console.log(`Velocidade atual do carro: ${carro.acelerar()}`);
+    carro.acelerar();
   }
-  descansar(voltas, pausa) {
+  descansar(volta, pausa) {
     // pausa entre voltas.
-    for (let i = 1; i <= voltas; i++) {
-      //a cada 2 voltas
-      if (i % 2 === 0) {
-        //faz uma pausa de x segundo
-        setTimeout(() => {
-          console.log(
-            `Voltas: ${i} - o ${this.identificador} esta fazendo pausa para descanso...`
-          );
-        }, pausa);
-      }
+    //for (let i = 1; i <= voltas; i++) {
+    //a cada 2 voltas
+    if (volta % 2 === 0) {
+      //faz uma pausa de x segundo
+      setTimeout(() => {
+        console.log(
+          `\nVoltas: ${volta} - o piloto ${this.identificador} esta fazendo pausa para descanso...`
+        );
+      }, pausa);
     }
+    // }
   }
   penalizar(carro, houverPenalidade) {
     //reduz velocidade por penalidade
@@ -66,10 +70,10 @@ class Piloto {
       carro.resetar();
     }
   }
-};
+}
 
 class Corrida {
-  constructor() { }
+  constructor() {}
   iniciar(voltas, piloto, carro) {
     //ciclo for para cada volta; chama dirigir de cada piloto.
     piloto.dirigir(voltas, carro);
@@ -91,23 +95,23 @@ class Corrida {
   simularPitStop() {
     //reduz velocidade temporariamente; ciclo para pit stops múltiplos.
   }
-};
+}
 
 class Equipe {
-  constructor() { }
+  constructor() {}
   prepararCarro(carro) {
     //ajusta carro antes da corrida.
     carro.status();
   }
   ajustarVelocidade(carro) {
     //otimiza aceleração e frenagem.
-    console.log(`Velocidade atual do carro: ${carro.acelerar()}`);
+    carro.acelerar();
     carro.frear();
     console.log("Testar acelerar velocidade.");
-    console.log(`Velocidade atual do carro: ${carro.acelerar()}`);
+    carro.acelerar();
     carro.resetar();
     console.log("Testar reduzir a velocidade.");
-    console.log(`Velocidade atual do carro: ${carro.acelerar()}`);
+    carro.acelerar();
   }
   monitorarPiloto(voltas) {
     //acompanha performance; ciclo de voltas.
@@ -125,17 +129,17 @@ class Equipe {
         console.log("Estratégia inválida");
     }
   }
-};
+}
 
 class Juiz {
-  constructor() { }
+  constructor() {}
   aplicarPenalidade(piloto, carro) {
     //reduz velocidade por infração ser === true.
     piloto.penalizar(carro, true);
     console.log(
       `O ${piloto.identificador} foi penalizado e sua velocidade foi reduzida!`
     );
-    console.log(`Velocidade atual do carro: ${carro.acelerar()}`);
+    piloto.mostrarVelocidade(carro);
   }
   conferirResultados(corrida, piloto, carro) {
     //verifica velocidade e posição.
@@ -155,26 +159,42 @@ class Juiz {
   alertarPiloto(piloto) {
     //mensagem de aviso.
     console.log(
-      `O ${piloto.identificador} foi alertado e pode ser penalizado!`
+      `O piloto ${piloto.identificador} foi alertado e pode ser penalizado!`
     );
   }
-};
+}
 
-/* TESTE DE FUNÇÕES 
-console.log("\n--- INICIANDO ACORRIDA ---\n");
-corrida.iniciar(5, piloto, carro);
+//criação de objetos
+const carro1 = new Carro(100);
+const carro2 = new Carro(120);
 
-console.log("--- RELATÓRIO DO PILOTO ---");
-corrida.relatorio(piloto, carro);
+const piloto1 = new Piloto(1);
+const piloto2 = new Piloto(2);
+
+const corrida = new Corrida();
+
+const equipa1 = new Equipe();
+const equipa2 = new Equipe();
+
+const juiz = new Juiz();
+
+/* TESTE DE FUNÇÕES */
+console.log("\n--- INICIANDO ACORRIDA ---");
+corrida.iniciar(5, piloto1, carro1);
+
+console.log("\n--- RELATÓRIO DO PILOTO ---");
+corrida.relatorio(piloto1, carro1);
 
 console.log("\n--- JUIZ ---");
-juiz.alertarPiloto(piloto);
-juiz.aplicarPenalidade(piloto, carro);
+juiz.alertarPiloto(piloto1);
+juiz.aplicarPenalidade(piloto1, carro1);
+
+/*console.log("\n--- PILOTO ---");
+piloto1.descansar(5, 1000);
 
 console.log("\n--- EQUIPA ---");
 equipe.prepararCarro(carro);
 equipe.ajustarVelocidade(carro);
 
-console.log("\n--- PILOTO ---");
-piloto.descansar(10, 1000);
+
 */

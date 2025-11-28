@@ -24,11 +24,20 @@ console.log(
 );
 
 //Calcule a média de idade apenas dos usuários que têm email definido (não nulo ou vazio).
-const media = usuarios
+const mediaIdade1 = usuarios
   .filter((u) => u.email)
-  .reduce((acc, u, idx, arr) => acc + u.idade / arr.length, 0);
+  .reduce((acc, u, _, arr) => acc + u.idade / arr.length, 0);
 
-console.log(media.toFixed(2));
+console.log(mediaIdade1.toFixed(2));
+
+//outro meio
+const usuariosComEmail = usuarios.filter((u) => u.email);
+
+const somaTotalIdade = usuariosComEmail.reduce((acc, u) => acc + u.idade, 0);
+
+const mediaIdade2 = somaTotalIdade/usuariosComEmail.length;
+
+console.log("Outra forma: ",mediaIdade2.toFixed(2));
 
 /* Exercício 3 — Array de mensagens personalizadas (map + filter) */
 console.log("\nExercício 3 — Array de mensagens personalizadas (map + filter)");
