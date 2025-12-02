@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>M1 Aula 20 Exercícios</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; max-width: 900px; margin: 40px auto; line-height: 1.6; color: #333; padding: 20px; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 15px; }
+        h2 { color: #e67e22; margin-top: 40px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        h3 { color: #16a085; margin-top: 30px; }
+        pre { background: #f8f9fa; padding: 15px; border-radius: 6px; border-left: 5px solid #3498db; overflow-x: auto; font-size: 0.95em; }
+        code { font-family: 'Consolas', monospace; color: #c7254e; background: #f9f2f4; padding: 2px 4px; border-radius: 3px; }
+        pre code { color: #333; background: transparent; padding: 0; }
+        .exercicio { background: #fff; padding: 20px; border: 1px solid #e1e4e8; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .new-section { background-color: #f0f7fb; border: 2px dashed #3498db; padding: 20px; border-radius: 8px; margin-top: 40px; }
+        ol li { margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+    <h1>M1 Aula 20 - Lógica e Algoritmos</h1>
+    <p><strong>Total:</strong> 35 Exercícios</p>
+
+    <h2>🧠 Parte A: Leitura de Código</h2>
+    <p><em>Prevê o output e escreve o pseudocódigo.</em></p>
+
+    <div class="exercicio">
+        <strong>1. Loops e Acumuladores</strong>
+<pre>let total = 0;
+for (let i = 1; i <= 4; i++) {
+    if (i % 2 === 0) {
+        total = total + i;
+    }
+}
+console.log(total);</pre>
+    </div>
+
+    <div class="exercicio">
+        <strong>2. Arrays e Condições</strong>
+<pre>let lista = [10, 5, 20];
+let maior = 0;
+for (let n of lista) {
+    if (n > maior) {
+        maior = n;
+    }
+}
+console.log(maior);</pre>
+    </div>
+
+    <div class="exercicio">
+        <strong>3. Funções e Scope</strong>
+<pre>let x = 10;
+function alterar(val) {
+    let x = 20; // Atenção ao 'let' aqui dentro
+    return val + x;
+}
+console.log(alterar(5));
+console.log(x);</pre>
+    </div>
+
+    <div class="exercicio">
+        <strong>4. Manipulação de Array</strong>
+<pre>let cores = ["Azul", "Verde"];
+cores.push("Amarelo");
+let removida = cores.shift();
+console.log(removida);
+console.log(cores.length);</pre>
+    </div>
+
+    <div class="exercicio">
+        <strong>5. Loops com Break</strong>
+<pre>let n = 0;
+while (n < 10) {
+    n++;
+    if (n === 3) continue;
+    if (n === 5) break;
+    console.log(n);
+}</pre>
+    </div>
+    
+    <h2>💻 Parte B: Escrita de Código</h2>
+    
+    <h3>Loops e Ifs</h3>
+    <ol start="6">
+        <li><strong>Contagem:</strong> Cria um loop <code>for</code> que imprime os números de 5 a 15.</li>
+        <li><strong>Soma de Pares:</strong> Cria um loop que soma todos os números pares entre 0 e 20 e imprime o total.</li>
+        <li><strong>Tabuada:</strong> Cria uma função <code>tabuada(n)</code> que imprime a tabuada desse número (ex: 2 x 1 = 2...).</li>
+        <li><strong>Condicional Simples:</strong> Cria uma variável <code>nota</code>. Se for <code>&lt; 10</code> imprime "Reprovado", se for <code>&gt;= 10</code> e <code>&lt; 14</code> imprime "Suficiente", senão "Bom".</li>
+        <li><strong>FizzBuzz Lite:</strong> Percorre números de 1 a 10. Se o número for 3 ou 6, imprime "Fizz", senão imprime o número.</li>
+    </ol>
+
+    <h3>Arrays e Funções</h3>
+    <ol start="11">
+        <li><strong>Criar Array:</strong> Cria um array <code>frutas</code> com 3 frutas. Imprime a segunda fruta.</li>
+        <li><strong>Adicionar/Remover:</strong> Adiciona "Kiwi" ao final do array anterior e remove o primeiro elemento. Imprime o array final.</li>
+        <li><strong>Loop em Array:</strong> Cria um array de notas <code>[10, 15, 8, 12]</code>. Usa um loop para imprimir apenas as negativas (&lt; 10).</li>
+        <li><strong>Média:</strong> Cria uma função <code>calcularMedia(lista)</code> que recebe um array de números e retorna a média.</li>
+        <li><strong>Pesquisa:</strong> Cria uma função <code>temValor(lista, valor)</code> que retorna <code>true</code> se o valor existir na lista, e <code>false</code> caso contrário (tenta fazer sem usar <code>.includes()</code> primeiro).</li>
+    </ol>
+
+    <h3>Objetos e Estruturas</h3>
+    <ol start="16">
+        <li><strong>O Objeto:</strong> Cria um objeto <code>carro</code> com propriedades: <code>marca</code>, <code>modelo</code> e <code>ano</code>.</li>
+        <li><strong>Acesso:</strong> Imprime uma frase: "O meu carro é um [marca] [modelo]".</li>
+        <li><strong>Modificação:</strong> Altera o <code>ano</code> do carro para 2024 e adiciona uma nova propriedade <code>cor</code> com valor "Preto".</li>
+        <li><strong>Loop em Objeto:</strong> Usa um <code>for...in</code> para imprimir todas as chaves e valores do objeto <code>carro</code>.</li>
+        <li><strong>Método:</strong> Adiciona um método (função) dentro do objeto <code>carro</code> chamado <code>buzinar</code> que quando chamado faz <code>console.log("Beep beep!")</code>.</li>
+    </ol>
+
+    <h3>Arrays de Objetos e Spread/Rest</h3>
+    <ol start="21">
+        <li><strong>Spread (Arrays):</strong> Tens <code>arr1 = [1, 2]</code> e <code>arr2 = [3, 4]</code>. Cria um <code>arr3</code> que junta os dois usando o operador spread <code>...</code>.</li>
+        <li><strong>Spread (Objetos):</strong> Tens <code>user = {nome: "Ana"}</code>. Cria um <code>userUpdate</code> que copia as propriedades de <code>user</code> e adiciona <code>email: "ana@mail.com"</code>.</li>
+        <li><strong>Rest (Funções):</strong> Cria uma função <code>somarTudo(...numeros)</code> que recebe uma quantidade indefinida de argumentos e retorna a soma de todos.</li>
+        <li><strong>Array de Objetos:</strong> Cria um array <code>turma</code> contendo 3 objetos, onde cada um representa um aluno (`nome`, `nota`).</li>
+        <li><strong>Filtro em Array de Objetos:</strong> Percorre o array <code>turma</code> e cria um novo array apenas com os alunos que têm nota positiva.</li>
+    </ol>
+
+    <h3>Integração (Mini-Projetos Guiados)</h3>
+    <ol start="26">
+        <li>
+            <strong>O Carrinho de Compras:</strong><br>
+            Cria um array de objetos <code>carrinho</code>. Cada objeto tem <code>nome</code>, <code>preco</code> e <code>qtd</code>. Adiciona 3 produtos.
+        </li>
+        <li>
+            <strong>Cálculo de Total:</strong><br>
+            Percorre o <code>carrinho</code> e calcula o preço total da compra (Preço * Quantidade de cada item).
+        </li>
+        <li>
+            <strong>Função de Desconto (Spread):</strong><br>
+            Cria uma função <code>aplicarDesconto(produto, percentagem)</code> que recebe um objeto produto e retorna um <strong>novo</strong> objeto (usando spread) com o <code>preco</code> reduzido, sem alterar o original.
+        </li>
+        <li>
+            <strong>Relatório:</strong><br>
+            Cria uma função que recebe o carrinho e imprime: "Tens X artigos. Total a pagar: Y€".
+        </li>
+        <li>
+            <strong>O "Merge" de Configurações:</strong><br>
+            Cria uma função <code>configurar(opcoesUsuario)</code> que recebe um objeto.<br>
+            Dentro da função, tens <code>opcoesPadrao = { tema: "dark", som: true, notificacoes: true }</code>.<br>
+            Retorna um objeto final que combina os padrões com o que o utilizador passou (as opções do utilizador sobrepõem os padrões). Usa Spread Operator.
+        </li>
+    </ol>
+
+    <div class="new-section">
+        <h3>🔥 Desafios de Lógica (Sem Guião)</h3>
+        <p><em>Nestes exercícios, decide tu se precisas de loops, ifs ou variáveis extra.</em></p>
+        <ol start="31">
+            <li>
+                <strong>O Saldo Bancário:</strong><br>
+                Tens um objeto conta: <code>{ titular: "Ana", movimentos: [200, -50, 100, -20] }</code>.<br>
+                Cria uma função que recebe este objeto e retorna o saldo final (a soma de todos os movimentos).
+            </li>
+            <li>
+                <strong>Notas da Turma (Objeto Complexo):</strong><br>
+                Dado: <code>{ disciplina: "Mat", alunos: [{nome: "A", nota: 12}, {nome: "B", nota: 8}, {nome: "C", nota: 15}] }</code>.<br>
+                Cria uma função que recebe este objeto e imprime o nome de todos os alunos que reprovaram (&lt; 10).
+            </li>
+            <li>
+                <strong>Ruptura de Stock:</strong><br>
+                Tens uma lista de produtos: <code>[{id: 1, stock: 10}, {id: 2, stock: 0}, {id: 3, stock: 5}]</code>.<br>
+                Cria uma função que retorna um <strong>novo array</strong> contendo apenas os IDs dos produtos que têm stock igual a 0.
+            </li>
+            <li>
+                <strong>Contador de Votos:</strong><br>
+                Tens um array de votos: <code>["Maria", "Joao", "Maria", "Ana", "Maria"]</code>.<br>
+                Cria uma função <code>contarVotos(lista, candidato)</code> que recebe a lista e o nome de um candidato, e retorna o número de vezes que esse nome aparece.
+            </li>
+            <li>
+                <strong>O Mais Caro:</strong><br>
+                Tens uma lista de preços: <code>[ {item: "X", preco: 10}, {item: "Y", preco: 50}, {item: "Z", preco: 20} ]</code>.<br>
+                Cria uma função que encontra e devolve o <strong>objeto inteiro</strong> (não apenas o preço) do item mais caro da lista.
+            </li>
+        </ol>
+    </div>
+</body>
+</html>
