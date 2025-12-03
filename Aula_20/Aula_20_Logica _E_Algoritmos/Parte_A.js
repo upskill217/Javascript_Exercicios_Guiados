@@ -2,7 +2,6 @@
 
 console.log("--- Parte A: Leitura de Código ---");
 
-
 //1. Loops e Acumuladores
 console.log("\n1. Loops e Acumuladores");
 let total = 0;
