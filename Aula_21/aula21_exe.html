@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>M1 Dia 21 Exercícios de Debug</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; max-width: 900px; margin: 40px auto; line-height: 1.6; color: #333; padding: 20px; }
+        h1 { color: #c0392b; border-bottom: 3px solid #e74c3c; padding-bottom: 15px; }
+        h2 { color: #d35400; margin-top: 40px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        h3 { color: #2c3e50; margin-top: 30px; }
+        
+        /* Estilo para Código */
+        pre { background: #f8f9fa; padding: 15px; border-radius: 6px; border-left: 5px solid #e74c3c; overflow-x: auto; font-size: 0.95em; position: relative; }
+        code { font-family: 'Consolas', monospace; color: #c7254e; background: #f9f2f4; padding: 2px 4px; border-radius: 3px; }
+        pre code { color: #333; background: transparent; padding: 0; }
+        
+        .bug-block { background: #fff5f5; padding: 20px; border: 1px solid #feb2b2; margin-bottom: 20px; border-radius: 8px; }
+        .console-block { background: #fff; padding: 20px; border: 1px solid #e1e4e8; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        
+        ol li { margin-bottom: 10px; }
+        .copy-hint { font-size: 0.8em; color: #7f8c8d; font-style: italic; float: right; }
+    </style>
+</head>
+<body>
+    <h1>M1 Dia 21: Debugging e Erros</h1>
+    <p><strong>Total:</strong> 5 Caça ao Bug + 15 Exercícios Gerais</p>
+
+    <h2>🐞 Parte 1: A Grande Caça ao Bug</h2>
+    <p><strong>Instruções:</strong> Copia estes códigos para o teu editor. Eles contêm erros. Usa o <strong>Debugger</strong> para corrigir.</p>
+
+    <div class="bug-block">
+        <span class="copy-hint">Copia-me!</span>
+        <h3>Bug #1</h3>
+<pre>let i = 0;
+while (i < 5) {
+    console.log(i);
+}</pre>
+    </div>
+
+    <div class="bug-block">
+        <span class="copy-hint">Copia-me!</span>
+        <h3>Bug #2</h3>
+<pre>function calcular() {
+    let taxa = 0.2;
+    if (true) {
+        let total = 100 * taxa;
+    }
+    console.log(total);
+}
+calcular();</pre>
+    </div>
+
+    <div class="bug-block">
+        <span class="copy-hint">Copia-me!</span>
+        <h3>Bug #3</h3>
+<pre>let preco1 = "10";
+let preco2 = "20";
+let total = preco1 + preco2;
+console.log("O total é: " + total);</pre>
+    </div>
+
+    <div class="bug-block">
+        <span class="copy-hint">Copia-me!</span>
+        <h3>Bug #4</h3>
+<pre>let nomes = ["Ana", "Rui", "Eva"];
+// O length é 3. Os índices são 0, 1, 2.
+for (let i = 0; i < nomes.length - 1; i++) {
+    console.log(nomes[i]);
+}</pre>
+    </div>
+
+    <div class="bug-block">
+        <span class="copy-hint">Copia-me!</span>
+        <h3>Bug #5</h3>
+<pre>let user = {
+    nome: "João"
+};
+
+console.log(user.morada.cidade);</pre>
+    </div>
+
+    <h2>🛠️ Parte 2: Interpretação e Console</h2>
+
+    <div class="console-block">
+        <h3>Identificação de Erros</h3>
+        <p><em>Sem correr o código, identifica qual o tipo de erro provável (Syntax, Reference, Type).</em></p>
+        <ol>
+            <li><code>console.log("Olá"</code></li>
+            <li><code>let a = 10; a.toUpperCase();</code></li>
+            <li><code>console.log(minhaVariavel);</code> <em>(assumindo que não foi declarada antes)</em></li>
+            <li><code>const pi = 3.14; pi = 3;</code></li>
+            <li><code>function() { return 1; }</code> <em>(sem nome e não atribuída)</em></li>
+        </ol>
+    </div>
+
+    <div class="console-block">
+        <h3>Previsão de Debug</h3>
+        <p><em>O que acontece se correr este código?</em></p>
+        <ol start="6">
+            <li><code>let a = "10"; let b = 10; console.log(a === b);</code></li>
+            <li><code>let x = 0; if (x = 10) { console.log("Entrou"); }</code></li>
+            <li><code>let lista = [1, 2]; console.log(lista[5]);</code></li>
+            <li><code>let obj = null; console.log(obj.nome);</code></li>
+            <li><code>console.log(10 / "dois");</code></li>
+        </ol>
+    </div>
+
+    <div class="console-block">
+        <h3>Ferramentas do Console</h3>
+        <p><em>Escreve o comando JS para realizar estas ações:</em></p>
+        <ol start="11">
+            <li>Imprimir um aviso amarelo com a mensagem "Bateria Fraca".</li>
+            <li>Imprimir um erro vermelho com a mensagem "Falha no sistema".</li>
+            <li>Mostrar o array <code>[{id:1, nome:"Ana"}, {id:2, nome:"Rui"}]</code> numa tabela organizada.</li>
+            <li>Limpar o histórico do console.</li>
+            <li>Verificar o tipo de dados da variável <code>temp</code>.</li>
+        </ol>
+    </div>
+</body>
+</html>
